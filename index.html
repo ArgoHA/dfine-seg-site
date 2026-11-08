@@ -1,0 +1,365 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>D-FINE-seg: real-time detection, segmentation and keypoints</title>
+  <meta name="description" content="D-FINE-seg: open-source (Apache-2.0) real-time object detection, keypoint estimation, instance and semantic segmentation. Interactive demos and benchmarks vs YOLO26.">
+  <meta name="author" content="Argo Saakyan">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://dfine-seg.argoai.space/">
+  <link rel="alternate" type="text/plain" href="https://dfine-seg.argoai.space/llms.txt" title="llms.txt">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="D-FINE-seg">
+  <meta property="og:url" content="https://dfine-seg.argoai.space/">
+  <meta property="og:title" content="D-FINE-seg — real-time vision">
+  <meta property="og:description" content="Every object, every pixel, every keypoint. Open-source, real-time, deployable on the edge.">
+  <meta property="og:image" content="https://dfine-seg.argoai.space/og.png">
+  <meta property="og:image:width" content="1280">
+  <meta property="og:image:height" content="640">
+  <meta property="og:image:alt" content="D-FINE-seg logo: a letter D made of bounding-box corners and a mask outline">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="D-FINE-seg — real-time vision">
+  <meta name="twitter:description" content="Every object, every pixel, every keypoint. Open-source, real-time, deployable on the edge.">
+  <meta name="twitter:image" content="https://dfine-seg.argoai.space/og.png">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebPage",
+        "@id": "https://dfine-seg.argoai.space/#webpage",
+        "url": "https://dfine-seg.argoai.space/",
+        "name": "D-FINE-seg: real-time detection, segmentation and keypoints",
+        "description": "Interactive demos and benchmarks of D-FINE-seg, open-source real-time models for object detection, keypoint estimation, instance and semantic segmentation.",
+        "inLanguage": "en",
+        "primaryImageOfPage": "https://dfine-seg.argoai.space/og.png",
+        "about": { "@id": "https://dfine-seg.argoai.space/#software" },
+        "author": { "@id": "https://argoai.space/#person" }
+      },
+      {
+        "@type": "SoftwareSourceCode",
+        "@id": "https://dfine-seg.argoai.space/#software",
+        "name": "D-FINE-seg",
+        "description": "Open-source framework and model family for real-time object detection, keypoint estimation, instance and semantic segmentation: training, export to TensorRT, ONNX, OpenVINO, CoreML and LiteRT, and optimized inference in Python and C++.",
+        "url": "https://dfine-seg.argoai.space/",
+        "codeRepository": "https://github.com/ArgoHA/D-FINE-seg",
+        "downloadUrl": "https://pypi.org/project/dfine-seg/",
+        "sameAs": [
+          "https://github.com/ArgoHA/D-FINE-seg",
+          "https://pypi.org/project/dfine-seg/",
+          "https://huggingface.co/ArgoSA/D-FINE-seg"
+        ],
+        "programmingLanguage": ["Python", "C++"],
+        "runtimePlatform": ["PyTorch", "TensorRT", "ONNX Runtime", "OpenVINO", "Core ML", "LiteRT"],
+        "license": "https://www.apache.org/licenses/LICENSE-2.0",
+        "isBasedOn": "https://arxiv.org/abs/2410.13842",
+        "citation": { "@id": "https://arxiv.org/abs/2602.23043" },
+        "author": { "@id": "https://argoai.space/#person" },
+        "keywords": ["object detection", "instance segmentation", "semantic segmentation", "keypoint estimation", "pose estimation", "real-time", "DETR", "D-FINE", "TensorRT", "edge AI"]
+      },
+      {
+        "@type": "Person",
+        "@id": "https://argoai.space/#person",
+        "name": "Argo Saakyan",
+        "url": "https://argoai.space/",
+        "sameAs": [
+          "https://github.com/ArgoHA",
+          "https://linkedin.com/in/argo-saakyan",
+          "https://orcid.org/0009-0009-7577-715X",
+          "https://huggingface.co/ArgoSA"
+        ]
+      },
+      {
+        "@type": "ScholarlyArticle",
+        "@id": "https://arxiv.org/abs/2602.23043",
+        "headline": "D-FINE-seg: Object Detection and Instance Segmentation Framework with multi-backend deployment",
+        "url": "https://arxiv.org/abs/2602.23043",
+        "datePublished": "2026-02-26",
+        "author": [{ "@id": "https://argoai.space/#person" }, { "@type": "Person", "name": "Dmitry Solntsev" }]
+      }
+    ]
+  }
+  </script>
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
+  <link rel="apple-touch-icon" href="favicon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <nav class="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top"><img src="favicon.svg" alt="" width="22" height="22">D-FINE-seg</a>
+      <div class="nav-links">
+        <a href="#tasks">Tasks</a>
+        <a href="#world">In the wild</a>
+        <a href="#speed">Speed</a>
+        <a href="https://github.com/ArgoHA/D-FINE-seg" target="_blank" rel="noopener">GitHub ↗</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="top">
+    <div class="wrap">
+      <p class="eyebrow">Apache-2.0 · real-time · edge-ready</p>
+      <h1>See every object,<br>every&nbsp;pixel, every&nbsp;keypoint.</h1>
+      <p class="lede">D-FINE-seg is a family of vision models that find objects, outline them, label every pixel of a scene and place keypoints such as human pose, fast enough to run on a robot, a car or a camera.</p>
+      <div class="cta">
+        <a class="btn btn-primary" href="https://github.com/ArgoHA/D-FINE-seg" target="_blank" rel="noopener">View on GitHub</a>
+        <button class="btn btn-ghost copy" data-copy="pip install dfine-seg"><span class="mono">pip install dfine-seg</span><span class="copy-hint">copy</span></button>
+      </div>
+    </div>
+    <div class="wrap wide">
+      <figure class="hero-stage">
+        <div class="stage" id="hero-player"></div>
+        <div class="wipe" id="hero-wipe" role="slider" aria-label="Drag to compare camera and model view" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" tabindex="0">
+          <span class="wipe-knob">⟷</span>
+        </div>
+        <span class="tag tag-l">Camera</span><span class="tag tag-r">What the model sees</span>
+        <figcaption><span id="hero-caption"><!-- prerender:hero-caption -->Country road at dusk. Off-road model trained on GOOSE, 69.8 mIoU, full 2048×1024 frames. Largest model, 15 ms per frame. Drag the handle, hover a pixel.<!-- /prerender:hero-caption --></span> <span class="hover-class" id="hero-class"></span></figcaption>
+      </figure>
+    </div>
+  </header>
+
+  <section class="section" id="tasks">
+    <div class="wrap">
+      <h2>One street, four ways of seeing</h2>
+      <p class="sub">The same model family, switched by a single setting. Pick a task.</p>
+      <div class="tabs" role="tablist" id="task-tabs"><!-- prerender:tabs --><button class="tab" role="tab" aria-selected="true"><span class="tab-name">Pixels</span><span class="tab-term">semantic segmentation</span></button><button class="tab" role="tab" aria-selected="false"><span class="tab-name">Boxes</span><span class="tab-term">object detection</span></button><button class="tab" role="tab" aria-selected="false"><span class="tab-name">Outlines</span><span class="tab-term">instance segmentation</span></button><button class="tab" role="tab" aria-selected="false"><span class="tab-name">Keypoints</span><span class="tab-term">keypoint estimation</span></button><!-- /prerender:tabs --></div>
+      <div class="task-view">
+        <div class="stage" id="task-player"></div>
+        <p class="task-caption" id="task-caption"><!-- prerender:task-caption -->Every pixel gets a class: road, sidewalk, car, person, tree, sky. It is how a car knows where it can drive.<!-- /prerender:task-caption --></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="world">
+    <div class="wrap">
+      <h2>Out in the wild</h2>
+      <p class="sub">The night sky, mines, reefs, cities and building sites. Trained once per domain. Click any tile to explore.</p>
+      <div class="grid" id="gallery"><!-- prerender:gallery -->
+<div class="card span-2" role="button" tabindex="0" aria-label="Open Radio galaxies and their hosts"><div class="card-media"><div class="stage"></div></div><div class="card-body"><span class="card-kicker">Astronomy · keypoints</span><h3>Radio galaxies and their hosts</h3><p>Jets from a black hole glow in radio (amber). The galaxy that launched them is a faint infrared dot (gray), often far from the brightest radio. The model boxes each radio galaxy, names its type and pins its host: 70.5 host AP vs 48.2, ahead of every published model.</p></div></div>
+<div class="card span-2" role="button" tabindex="0" aria-label="Open Foreign objects on an ore belt"><div class="card-media"><div class="stage"></div></div><div class="card-body"><span class="card-kicker">Mining · pixels</span><h3>Foreign objects on an ore belt</h3><p>A hammer and a folding tool hidden in iron ore at full belt speed. The ore is mapped, and each foreign object is flagged before it can jam the crusher.</p></div></div>
+<div class="card" role="button" tabindex="0" aria-label="Open Great Barrier Reef survey"><div class="card-media"><div class="stage"></div></div><div class="card-body"><span class="card-kicker">Underwater · pixels</span><h3>Great Barrier Reef survey</h3><p>A reef model trained on Red Sea surveys, run on a swim over the other side of the world. Live coral by type, sand, rock and fish.</p></div></div>
+<div class="card" role="button" tabindex="0" aria-label="Open Street dance"><div class="card-media"><div class="stage"></div></div><div class="card-body"><span class="card-kicker">Dance · keypoints</span><h3>Street dance</h3><p>Five dancers, 17 joints each, through every move. Hollow joints are ones the model knows are hidden.</p></div></div>
+<div class="card span-2" role="button" tabindex="0" aria-label="Open Shibuya crossing"><div class="card-media"><div class="stage"></div></div><div class="card-body"><span class="card-kicker">City · boxes</span><h3>Shibuya crossing</h3><p>Around 190 people in every frame, down to the far side of the crossing. A model trained on drone footage, looking down from above.</p></div></div>
+<div class="card" role="button" tabindex="0" aria-label="Open Dump truck on a road works site"><div class="card-media"><div class="stage"></div></div><div class="card-body"><span class="card-kicker">Construction · outlines</span><h3>Dump truck on a road works site</h3><p>The truck and its driver outlined as it crosses the site. The general model has never seen an excavator; a site-specific model is a small fine-tune away.</p></div></div>
+<div class="card" role="button" tabindex="0" aria-label="Open Chase drone over a dry lake"><div class="card-media"><div class="stage"></div></div><div class="card-body"><span class="card-kicker">Off-road · outlines</span><h3>Chase drone over a dry lake</h3><p>The rider outlined at speed from an FPV drone, through motion blur and banking turns.</p></div></div>
+<div class="card span-2" role="button" tabindex="0" aria-label="Open Blinded by headlights"><div class="card-media"><div class="stage"></div></div><div class="card-body"><span class="card-kicker">Thermal · boxes</span><h3>Blinded by headlights</h3><p>Glare hides the oncoming car from a regular camera, and the far car on the right barely shows in thermal. The model reads both cameras at once and finds all seven cars and both people. Switch views in the viewer.</p></div></div>
+<!-- /prerender:gallery --></div>
+    </div>
+  </section>
+
+  <section class="section" id="speed">
+    <div class="wrap">
+      <h2>Fast and accurate</h2>
+      <p class="sub">Measured end-to-end on one RTX 5070 Ti with TensorRT, the way it would run in a product.</p>
+      <p class="stats-head mono small">S model · 640×640 input · end-to-end latency per image</p>
+      <div class="stats">
+        <div class="stat"><span class="stat-task">Pixels</span><span class="stat-num">1.8 <small>ms</small></span><span class="stat-label">Semantic segmentation, 72.8 mIoU on Cityscapes</span></div>
+        <div class="stat"><span class="stat-task">Boxes</span><span class="stat-num">2.0 <small>ms</small></span><span class="stat-label">Object detection, beats the larger YOLO26-M (3.0 ms) on Cityscapes</span></div>
+        <div class="stat"><span class="stat-task">Outlines</span><span class="stat-num">3.1 <small>ms</small></span><span class="stat-label">Instance segmentation, beats the larger YOLO26-M (5.3 ms) on Cityscapes</span></div>
+        <div class="stat"><span class="stat-task">Keypoints</span><span class="stat-num">2.1 <small>ms</small></span><span class="stat-label">Human pose, 65.4 AP on COCO vs 62.7 for YOLO26s-pose</span></div>
+      </div>
+      <figure class="chart-card">
+        <div class="chart-head">
+          <div>
+            <h3>Accuracy vs. speed, Cityscapes semantic segmentation at 2048×1024</h3>
+            <p class="muted">Each dot is a model size. Up and to the left is better.</p>
+          </div>
+          <div class="legend"><span class="key key-accent"></span>D-FINE-seg <span class="key key-gray"></span>Other models</div>
+        </div>
+        <div class="chart" id="chart"></div>
+        <figcaption class="muted small">Full-resolution whole-image inference, TensorRT FP16, batch 1. Data: <a href="https://github.com/ArgoHA/cityscapes-benchmark" target="_blank" rel="noopener">cityscapes-benchmark</a>.</figcaption>
+      </figure>
+      <details class="fold" id="numbers">
+        <summary><span>All the numbers <span class="muted">· every benchmark on this page, as tables</span></span></summary>
+        <div class="fold-body">
+<!-- prerender:results -->
+<div class="result">
+<h3>Cityscapes semantic segmentation, whole 2048×1024 frames</h3>
+<div class="table-scroll"><table>
+<thead><tr><th scope="col">Model</th><th scope="col">mIoU</th><th scope="col">Latency (ms)</th><th scope="col">Params (M)</th></tr></thead>
+<tbody>
+<tr class="ours"><th scope="row">D-FINE-seg-X</th><td>84.84</td><td>14.64</td><td>56.30</td></tr>
+<tr class="ours"><th scope="row">D-FINE-seg-L</th><td>83.80</td><td>9.77</td><td>24.97</td></tr>
+<tr><th scope="row">YOLO26x-sem</th><td>83.58</td><td>13.58</td><td>40.13</td></tr>
+<tr><th scope="row">Mask2Former-Swin-L</th><td>83.33</td><td>94.07</td><td>215.46</td></tr>
+<tr><th scope="row">Mask2Former-Swin-B</th><td>83.29</td><td>79.85</td><td>106.89</td></tr>
+<tr><th scope="row">EfficientViT-L2</th><td>83.20</td><td>19.87</td><td>52.61</td></tr>
+<tr><th scope="row">EfficientViT-B3</th><td>83.01</td><td>21.58</td><td>39.60</td></tr>
+<tr><th scope="row">YOLO26l-sem</th><td>82.95</td><td>8.77</td><td>17.85</td></tr>
+<tr><th scope="row">EfficientViT-L1</th><td>82.64</td><td>17.78</td><td>40.24</td></tr>
+<tr><th scope="row">Mask2Former-Swin-S</th><td>82.43</td><td>73.32</td><td>68.72</td></tr>
+<tr><th scope="row">Mask2Former-Swin-T</th><td>82.19</td><td>69.33</td><td>47.41</td></tr>
+<tr><th scope="row">EfficientViT-B2</th><td>82.06</td><td>16.25</td><td>15.32</td></tr>
+<tr><th scope="row">YOLO26m-sem</th><td>82.02</td><td>7.54</td><td>14.30</td></tr>
+<tr class="ours"><th scope="row">D-FINE-seg-M</th><td>81.41</td><td>8.26</td><td>15.95</td></tr>
+<tr><th scope="row">SegFormer-B5</th><td>81.41</td><td>42.12</td><td>84.61</td></tr>
+<tr><th scope="row">SegFormer-B4</th><td>81.15</td><td>36.78</td><td>64.01</td></tr>
+<tr class="ours"><th scope="row">D-FINE-seg-S</th><td>81.12</td><td>6.37</td><td>7.99</td></tr>
+<tr><th scope="row">YOLO26s-sem</th><td>80.80</td><td>5.52</td><td>6.49</td></tr>
+<tr><th scope="row">SegFormer-B3</th><td>80.77</td><td>29.43</td><td>47.24</td></tr>
+<tr><th scope="row">EfficientViT-B1</th><td>80.53</td><td>13.35</td><td>4.80</td></tr>
+<tr><th scope="row">SegFormer-B2</th><td>79.94</td><td>23.46</td><td>27.36</td></tr>
+<tr><th scope="row">Mask2Former-R101</th><td>79.72</td><td>68.93</td><td>63.00</td></tr>
+<tr><th scope="row">Mask2Former-R50</th><td>79.30</td><td>66.51</td><td>44.01</td></tr>
+<tr><th scope="row">YOLO26n-sem</th><td>78.25</td><td>4.71</td><td>1.63</td></tr>
+<tr class="ours"><th scope="row">D-FINE-seg-N</th><td>77.99</td><td>4.21</td><td>3.36</td></tr>
+<tr><th scope="row">SegFormer-B1</th><td>77.42</td><td>12.32</td><td>13.68</td></tr>
+<tr><th scope="row">EfficientViT-B0</th><td>75.63</td><td>11.90</td><td>0.71</td></tr>
+<tr><th scope="row">SegFormer-B0</th><td>74.43</td><td>8.78</td><td>3.72</td></tr>
+</tbody></table></div>
+<p class="muted small note">Cityscapes val, 500 images, one forward pass per frame. D-FINE-seg sizes trained by us; the other 23 are the official checkpoints, not retrained. End-to-end latency (each framework's own pre- and postprocessing), TensorRT FP16, batch 1, RTX 5070 Ti. <a href="https://github.com/ArgoHA/cityscapes-benchmark" target="_blank" rel="noopener">Protocol and per-class IoU: cityscapes-benchmark ↗</a></p>
+</div>
+<div class="result">
+<h3>Cityscapes object detection at 640</h3>
+<div class="table-scroll"><table>
+<thead><tr><th scope="col">Model</th><th scope="col">F1</th><th scope="col">Precision</th><th scope="col">Recall</th><th scope="col">Latency (ms)</th><th scope="col">Params (M)</th></tr></thead>
+<tbody>
+<tr class="ours"><th scope="row">D-FINE-seg S</th><td>0.703</td><td>0.817</td><td>0.617</td><td>2.0</td><td>10.3</td></tr>
+<tr><th scope="row">YOLO26-M</th><td>0.691</td><td>0.792</td><td>0.613</td><td>3.0</td><td>21.8</td></tr>
+<tr><th scope="row">RF-DETR-medium</th><td>0.673</td><td>0.769</td><td>0.599</td><td>10.2</td><td>33.4</td></tr>
+</tbody></table></div>
+<p class="muted small note">Every model fine-tuned by us on Cityscapes, scored on the 500 val images, confidence threshold tuned per framework for the best F1. D-FINE-seg and YOLO26 run at 640×640, RF-DETR at its own default resolution (576×576). End-to-end latency (each framework's own pre- and postprocessing), TensorRT FP16, batch 1, RTX 5070 Ti. <a href="https://github.com/ArgoHA/cityscapes-benchmark" target="_blank" rel="noopener">Protocol: cityscapes-benchmark ↗</a></p>
+</div>
+<div class="result">
+<h3>Cityscapes instance segmentation at 640</h3>
+<div class="table-scroll"><table>
+<thead><tr><th scope="col">Model</th><th scope="col">F1</th><th scope="col">Precision</th><th scope="col">Recall</th><th scope="col">Latency (ms)</th><th scope="col">Params (M)</th></tr></thead>
+<tbody>
+<tr class="ours"><th scope="row">D-FINE-seg S</th><td>0.661</td><td>0.748</td><td>0.592</td><td>3.1</td><td>11.9</td></tr>
+<tr><th scope="row">RF-DETR-seg-medium</th><td>0.620</td><td>0.789</td><td>0.510</td><td>16.8</td><td>35.4</td></tr>
+<tr><th scope="row">YOLO26-M</th><td>0.599</td><td>0.688</td><td>0.530</td><td>5.3</td><td>27.0</td></tr>
+</tbody></table></div>
+<p class="muted small note">Same protocol as detection; RF-DETR-seg-medium runs at its own default resolution (432×432). End-to-end latency (each framework's own pre- and postprocessing), TensorRT FP16, batch 1, RTX 5070 Ti. <a href="https://github.com/ArgoHA/cityscapes-benchmark" target="_blank" rel="noopener">Protocol: cityscapes-benchmark ↗</a></p>
+</div>
+<div class="result">
+<h3>Cityscapes semantic segmentation at 640</h3>
+<div class="table-scroll"><table>
+<thead><tr><th scope="col">Model</th><th scope="col">mIoU</th><th scope="col">Latency (ms)</th><th scope="col">Params (M)</th></tr></thead>
+<tbody>
+<tr class="ours"><th scope="row">D-FINE-seg M</th><td>75.3</td><td>2.24</td><td>16.0</td></tr>
+<tr><th scope="row">YOLO26-L</th><td>73.9</td><td>3.56</td><td>17.9</td></tr>
+<tr><th scope="row">YOLO26-M</th><td>73.3</td><td>3.08</td><td>14.3</td></tr>
+<tr class="ours"><th scope="row">D-FINE-seg S</th><td>72.8</td><td>1.79</td><td>8.0</td></tr>
+</tbody></table></div>
+<p class="muted small note">Every model fine-tuned by us on Cityscapes at 640×640, scored on the 500 val images at original resolution. Superseded by the full-resolution table above; the S row is the 1.8 ms semantic segmentation figure in the speed tiles. End-to-end latency (each framework's own pre- and postprocessing), TensorRT FP16, batch 1, RTX 5070 Ti. <a href="https://github.com/ArgoHA/cityscapes-benchmark" target="_blank" rel="noopener">Protocol: cityscapes-benchmark ↗</a></p>
+</div>
+<div class="result">
+<h3>COCO person keypoints (human pose)</h3>
+<div class="table-scroll"><table>
+<thead><tr><th scope="col">Model</th><th scope="col">Keypoint AP</th><th scope="col">AP50</th><th scope="col">AP75</th><th scope="col">Person box AP</th><th scope="col">Latency (ms)</th></tr></thead>
+<tbody>
+<tr class="ours"><th scope="row">D-FINE-seg S</th><td>65.4</td><td>88.0</td><td>71.1</td><td>64.2</td><td>2.10</td></tr>
+<tr><th scope="row">YOLO26s-pose</th><td>62.7</td><td>85.8</td><td>68.8</td><td>54.3</td><td>2.16</td></tr>
+</tbody></table></div>
+<p class="muted small note">COCO val2017 at 640, official COCO AP. D-FINE-seg S trained for 40 epochs; YOLO26s-pose is the released checkpoint (300 epochs, Objects365 init). End-to-end latency (each framework's own pre- and postprocessing), TensorRT FP16, batch 1, RTX 5070 Ti. <a href="https://github.com/ArgoHA/D-FINE-seg/blob/main/CHANGELOG.md" target="_blank" rel="noopener">Details: D-FINE-seg changelog ↗</a></p>
+</div>
+<div class="result">
+<h3>RadioGalaxyNET: radio galaxies and their infrared hosts</h3>
+<div class="table-scroll"><table>
+<thead><tr><th scope="col">Model</th><th scope="col">Box AP</th><th scope="col">Host keypoint AP</th><th scope="col">Latency (ms)</th><th scope="col">Params (M)</th><th scope="col">Input</th></tr></thead>
+<tbody>
+<tr class="ours"><th scope="row">D-FINE-seg S</th><td>67.1</td><td>70.5</td><td>1.8</td><td>13.4</td><td>640</td></tr>
+<tr><th scope="row">Gal-DINO (published model)</th><td>53.8</td><td>48.2</td><td>11.6</td><td>47</td><td>800</td></tr>
+</tbody></table></div>
+<p class="muted small note">Test split, 420 images, 611 sources, both models scored with Gal-DINO's own evaluation (paper: 53.7 box AP, 48.1 host AP). Over three training seeds D-FINE-seg S scores 66.4 ± 0.7 box AP and 70.9 ± 0.4 host AP. The best published box AP is 54.5 (Gal-YOLOv8, same paper, no hosts). End-to-end latency (each framework's own pre- and postprocessing), TensorRT FP16, batch 1, RTX 5070 Ti. <a href="https://github.com/ArgoHA/radiogalaxynet-dfine-vs-galdino" target="_blank" rel="noopener">Code and raw predictions: radiogalaxynet-dfine-vs-galdino ↗</a></p>
+</div>
+<div class="result">
+<h3>Models behind the gallery</h3>
+<ul>
+<li><strong>Radio galaxies and their hosts</strong> <span class="muted">Astronomy · keypoints</span><br>S model · RadioGalaxyNET (EMU pilot survey) · host keypoint AP 70.5 vs 48.2 (Gal-DINO), box AP 67.1 vs 54.5 (best published) · 1.8 ms vs 11.6 ms · held-out val / test images</li>
+<li><strong>Foreign objects on an ore belt</strong> <span class="muted">Mining · pixels</span><br>L model · 83.1 mIoU on held-out videos · lab-scale conveyor rig</li>
+<li><strong>Great Barrier Reef survey</strong> <span class="muted">Underwater · pixels</span><br>X model · Coralscapes, 39 classes · 58.4 mIoU at 15 ms vs SegFormer-B5 58.2 at 39 ms</li>
+<li><strong>Street dance</strong> <span class="muted">Dance · keypoints</span><br>S model · 65.4 keypoint AP at 2.1 ms (YOLO26s-pose: 62.7)</li>
+<li><strong>Shibuya crossing</strong> <span class="muted">City · boxes</span><br>X model at 1280 px input · trained on VisDrone</li>
+<li><strong>Dump truck on a road works site</strong> <span class="muted">Construction · outlines</span><br>X model · COCO instance segmentation</li>
+<li><strong>Chase drone over a dry lake</strong> <span class="muted">Off-road · outlines</span><br>X model · COCO instance segmentation, person class only</li>
+<li><strong>Blinded by headlights</strong> <span class="muted">Thermal · boxes</span><br>L model · 4-channel RGB + thermal input · 93.1 mAP50 on M3FD test</li>
+</ul>
+</div>
+<!-- /prerender:results -->
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <section class="section" id="next">
+    <div class="wrap two-col">
+      <div>
+        <h2>Built for machines that work outside</h2>
+        <p class="sub">Off-road vehicles, construction equipment, underwater robots and planetary rovers need perception that is accurate, fast and small enough to run on board. D-FINE-seg trains on your own data, exports to TensorRT, ONNX, OpenVINO and CoreML, and ships with a C++ runtime for embedded GPUs.</p>
+      </div>
+      <div>
+      <p class="roadmap-head mono small">Coming next</p>
+      <ul class="roadmap">
+        <li><span class="dot"></span><div><strong>Larger keypoint models</strong><span class="muted">More model sizes for keypoints, coming soon</span></div></li>
+        <li><span class="dot"></span><div><strong>Whole radio surveys</strong><span class="muted">Radio galaxies and their hosts across the full EMU sky survey</span></div></li>
+      </ul>
+      </div>
+    </div>
+    <div class="wrap">
+      <details class="fold faq" id="faq">
+        <summary><span>Questions <span class="muted">· license, comparisons, custom keypoints, training</span></span></summary>
+        <div class="fold-body">
+<!-- prerender:faq -->
+<div class="qa"><h3>What is D-FINE-seg?</h3><p>An open-source framework and model family for real-time object detection, keypoint estimation, instance and semantic segmentation. One codebase, one config setting per task (<code>task: detect | segment | sem_seg | kpts</code>), five model sizes from N to X, from training to export and deployment. The detection core follows <a href="https://arxiv.org/abs/2410.13842">D-FINE</a>, a real-time detector from the DETR (detection transformer) family; the segmentation and keypoint heads and the rest of the pipeline are written from scratch.</p></div>
+<div class="qa"><h3>Can I use it commercially?</h3><p>Yes. The code and the released COCO weights are Apache-2.0, not AGPL-3.0 like Ultralytics YOLO, and models you train on your own data are yours to ship. Only the Cityscapes semantic segmentation weights are non-commercial, inherited from the dataset.</p></div>
+<div class="qa"><h3>How does it compare with YOLO26 and RF-DETR?</h3><p>On Cityscapes semantic segmentation at full 2048×1024, D-FINE-seg-X reaches 84.84 mIoU, the highest of 28 models, and D-FINE-seg-L matches YOLO26x-sem at lower latency. On Cityscapes detection and instance segmentation, the S model beats the larger YOLO26-M and RF-DETR-medium on F1 and is faster. On COCO person keypoints, S scores 65.4 AP vs 62.7 for YOLO26s-pose at the same latency. All end to end with TensorRT FP16 on one RTX 5070 Ti; tables under "All the numbers".</p></div>
+<div class="qa"><h3>Can it find keypoints other than human pose?</h3><p>Yes. Each detected object gets K points with a presence and a visibility score, so the model learns whatever points your labels define, like the host galaxy of a radio source in the demo above. Labels can be YOLO-pose or COCO keypoints. The released weights are trained on COCO human pose and are a good starting point.</p></div>
+<div class="qa"><h3>Does it work with thermal, depth or other extra channels?</h3><p>Yes. Train on RGB plus one extra channel (thermal, depth or near-infrared); pretrained RGB weights still initialize the model. The "Blinded by headlights" demo reads RGB and thermal together: 93.1 mAP50 on M3FD.</p></div>
+<div class="qa"><h3>How do I train it on my own data?</h3><p><code>pip install dfine-seg</code>, put images and labels in YOLO or COCO format, set the task and model size in the config, train. Export and benchmarking are one command each. See the <a href="https://github.com/ArgoHA/D-FINE-seg#quick-start">quick start</a>, the <a href="https://youtu.be/_uEyRRw4miY">video tutorial</a> or the <a href="https://colab.research.google.com/drive/1ZV12qnUQMpC0g3j-0G-tYhmmdM98a41X?usp=sharing">Colab notebook</a>.</p></div>
+<!-- /prerender:faq -->
+        </div>
+      </details>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <div>
+        <p>Built by <a href="https://argoai.space" target="_blank" rel="noopener">Argo Saakyan</a>. Code under Apache-2.0.</p>
+        <p class="muted small"><a href="https://arxiv.org/abs/2602.23043" target="_blank" rel="noopener">Paper</a> · <a href="https://pypi.org/project/dfine-seg/" target="_blank" rel="noopener">PyPI</a> · <a href="https://huggingface.co/ArgoSA/D-FINE-seg" target="_blank" rel="noopener">Weights</a> · <a href="https://github.com/ArgoHA/D-FINE-seg" target="_blank" rel="noopener">GitHub</a></p>
+      </div>
+      <details class="credits">
+        <summary>Footage & data credits</summary>
+        <ul id="credits"><!-- prerender:credits -->
+<li>Hero footage: Mixkit, free license: mixkit.co/free-stock-video/traveling-on-a-nature-road-at-dusk-41575. Off-road model trained on GOOSE, the German Outdoor and Offroad Dataset (Fraunhofer IOSB, UniBw Munich), CC BY-SA 4.0: https://goose-dataset.de</li>
+<li>Cityscapes demo video (Daimler AG, MPI Informatics, TU Darmstadt), non-commercial terms</li>
+<li>Radio galaxy images: RadioGalaxyNET (Gupta et al., PASA 2024; CSIRO, EMU pilot survey radio + WISE infrared), CC BY-NC-SA 4.0, re-rendered for display</li>
+<li>Iron ore conveyor: Sousa et al., &quot;In-lab Image Dataset of Foreign Objects and Anomalies in Iron Ore Conveyor Belts&quot;, Mendeley Data, CC BY 4.0</li>
+<li>Reef footage: Adam Fish, CC BY 3.0, Wikimedia Commons (&quot;Lady Musgrave Island coral survey 2022&quot;)</li>
+<li>Mixkit, free license: mixkit.co/free-stock-video/five-young-people-dancing-a-choreography-in-the-street-51295</li>
+<li>Shibuya footage: Mixkit, free license: mixkit.co/free-stock-video/crowds-of-people-cross-a-street-junction-4401; model trained on VisDrone (AISKYEYE, Tianjin University), non-commercial research use</li>
+<li>Road works footage: Sounds of Changes, CC BY 3.0, Wikimedia Commons (&quot;Building site Ljubljana 2&quot;)</li>
+<li>Mixkit, free license: mixkit.co/free-stock-video/man-traveling-through-the-desert-on-his-motorcycle-43114</li>
+<li>Thermal + visible images: M3FD dataset (Liu et al., CVPR 2022), research use</li>
+<!-- /prerender:credits --></ul>
+      </details>
+    </div>
+  </footer>
+
+  <dialog class="lightbox" id="lightbox">
+    <div class="lb-inner">
+      <button class="lb-close" aria-label="Close">×</button>
+      <div class="lb-stage"><div class="stage" id="lb-player" tabindex="0" autofocus aria-label="Click or press Space to pause or play"></div><span class="lb-paused" id="lb-paused" aria-hidden="true" hidden>▶</span></div>
+      <div class="lb-side">
+        <h3 id="lb-title"></h3>
+        <p class="muted" id="lb-caption"></p>
+        <p class="lb-meta mono small" id="lb-meta"></p>
+        <div class="tabs tabs-sm" id="lb-views"></div>
+        <label class="ctrl">Overlay <input type="range" id="lb-opacity" min="0" max="1" step="0.01" value="1"></label>
+        <label class="ctrl ctrl-check" id="lb-labels-wrap"><input type="checkbox" id="lb-labels" checked> Labels</label>
+        <div class="legend-list" id="lb-legend"></div>
+        <p class="muted small" id="lb-hint"></p>
+      </div>
+    </div>
+  </dialog>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

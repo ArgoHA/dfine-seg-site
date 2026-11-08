@@ -1,0 +1,137 @@
+{
+ "web_kpts_breakdance": {
+  "title": "Breakdancer - human pose",
+  "caption": "A 17-point skeleton follows a breakdancer through spins, kicks and handstands, even upside down.",
+  "source": "https://mixkit.co/free-stock-video/man-breakdancing-452/",
+  "author": "Mixkit",
+  "license": "Mixkit Stock Video Free License (free for commercial and personal use, no attribution required)",
+  "model": "D-FINE-seg S keypoints (dfine_kpts_s_coco.pt), conf 0.5",
+  "notes": "Released COCO person-keypoint S weights, 640x640, PyTorch. Segment 0-12 s of the clip, 24 fps. Inverted poses are the hardest case: a few frames swap left/right limbs."
+ },
+ "web_kpts_soccer": {
+  "title": "Five-a-side football - human pose",
+  "caption": "Every player on the pitch gets a live skeleton, from the dribbler up close to the goalkeeper far away.",
+  "source": "https://mixkit.co/free-stock-video/goal-play-in-a-semi-professional-soccer-game-43499/",
+  "author": "Mixkit",
+  "license": "Mixkit Stock Video Free License (free for commercial and personal use, no attribution required)",
+  "model": "D-FINE-seg S keypoints (dfine_kpts_s_coco.pt), conf 0.45",
+  "notes": "Released COCO person-keypoint S weights, 640x640, PyTorch. Whole clip (8 s, 24 fps), handheld camera."
+ },
+ "web_det_shibuya": {
+  "title": "Shibuya scramble crossing - detection",
+  "caption": "Around 190 pedestrians per frame are picked out at a famously crowded crossing, down to the far side of the street.",
+  "source": "https://mixkit.co/free-stock-video/crowds-of-people-cross-a-street-junction-4401/",
+  "author": "Mixkit",
+  "license": "Mixkit Stock Video Free License (free for commercial and personal use, no attribution required)",
+  "model": "D-FINE-seg X detection fine-tuned on VisDrone (det_x_2026-02-21), conf 0.4, 1280x736 input",
+  "notes": "VisDrone2019-DET X model (640x640 training, test-dev mAP50 0.443, F1 0.591), run at 1280x736. The high camera angle is close to VisDrone's drone views: ~185 people per frame at conf 0.4 vs ~42 with the COCO X model (obj2coco, same input size; that version is parked in extras/media/web/web_det_shibuya_coco). VisDrone classes: 'pedestrian' = walking/standing, 'people' = other poses; no bags or traffic lights. 1920x1088 input finds fewer (~71); 640x640 is similar to 1280x736 (~176). PyTorch. Segment 0-10 s, 30 fps. The model inherits VisDrone's non-commercial terms."
+ },
+ "web_seg_bears": {
+  "title": "Brown bears - instance segmentation",
+  "caption": "Two brown bears are each traced with a pixel-accurate outline, fur and all.",
+  "source": "https://mixkit.co/free-stock-video/pair-of-brown-bears-in-the-field-4071/",
+  "author": "Mixkit",
+  "license": "Mixkit Stock Video Free License (free for commercial and personal use, no attribution required)",
+  "model": "D-FINE-seg X instance segmentation (dfine_seg_x_coco.pt), conf 0.5",
+  "notes": "Released COCO instance-seg weights, 640x640, PyTorch. Segment 0-12 s, 25 fps."
+ },
+ "web_seg_elephants": {
+  "title": "Elephants in a river - instance segmentation",
+  "caption": "Elephants wading through a muddy river are outlined one by one, including the one that walks right past the camera.",
+  "source": "https://mixkit.co/free-stock-video/elephants-walking-inside-a-river-3683/",
+  "author": "Mixkit",
+  "license": "Mixkit Stock Video Free License (free for commercial and personal use, no attribution required)",
+  "model": "D-FINE-seg X instance segmentation (dfine_seg_x_coco.pt), conf 0.5",
+  "notes": "Released COCO instance-seg weights, 640x640, PyTorch. Segment 0-12 s, 24 fps."
+ },
+ "web_seg_excavator": {
+  "title": "Excavator loading trucks - instance segmentation",
+  "caption": "Dump trucks are outlined while a digger loads them; COCO has no 'excavator' class, so the digger itself is exactly what a construction dataset would teach the model.",
+  "source": "https://commons.wikimedia.org/wiki/File:Excavator_digging_land_and_loading_truck.webm",
+  "author": "KEmel49 (Wikimedia Commons)",
+  "license": "CC BY-SA 4.0 (https://creativecommons.org/licenses/by-sa/4.0)",
+  "model": "D-FINE-seg X instance segmentation (dfine_seg_x_coco.pt), conf 0.5",
+  "notes": "Released COCO instance-seg weights, 640x640, PyTorch. Segment 5.5-17.5 s, 30 fps. The excavator itself is occasionally called a 'truck' at low confidence (it is not a COCO class) - a clear fine-tuning case."
+ },
+ "web_sem_reef_porcupinefish": {
+  "title": "Great Barrier Reef - coral semantic segmentation",
+  "caption": "Every pixel of a living reef is sorted into coral, algae, rock, sand and fish by a model trained on reefs from other oceans.",
+  "source": "https://commons.wikimedia.org/wiki/File:Pair_of_Spotted_Porcupinefish_(Diodon_hystrix)_swimming_in_the_reefs_of_Lady_Musgrave_Island,_Queensland,_Australia.webm",
+  "author": "Adam Fish (Wikimedia Commons)",
+  "license": "CC BY 3.0 (https://creativecommons.org/licenses/by/3.0)",
+  "model": "D-FINE-seg X semantic segmentation trained on Coralscapes (39 classes), 1024x1024 input",
+  "notes": "Coralscapes X (train+val) checkpoint; Coralscapes is Red Sea imagery, this is Lady Musgrave Island (GBR) - an out-of-distribution generalization test. Segment 0-10 s, 12 fps (every 5th frame of 60 fps)."
+ },
+ "web_sem_reef_shark": {
+  "title": "Nurse shark over a reef - coral semantic segmentation",
+  "caption": "A nurse shark glides over the reef: the model labels it as fish and maps the rock, algae and coral below.",
+  "source": "https://mixkit.co/free-stock-video/small-shark-swimming-4406/",
+  "author": "Mixkit",
+  "license": "Mixkit Stock Video Free License (free for commercial and personal use, no attribution required)",
+  "model": "D-FINE-seg X semantic segmentation trained on Coralscapes (39 classes), 1024x1024 input",
+  "notes": "Coralscapes X (train+val) checkpoint, out-of-distribution footage. Segment 1-11 s, 15 fps. The shark's tail is sometimes labeled 'human' (no shark class)."
+ },
+ "web_det_offroad_moto": {
+  "title": "Off-road rider - detection from a chase drone",
+  "caption": "An FPV drone chases a dirt bike across a dry lake bed while the rider and motorcycle stay locked in.",
+  "source": "https://mixkit.co/free-stock-video/man-traveling-through-the-desert-on-his-motorcycle-43114/",
+  "author": "Mixkit",
+  "license": "Mixkit Stock Video Free License (free for commercial and personal use, no attribution required)",
+  "model": "D-FINE-seg X detection (dfine_x_obj2coco.pt), conf 0.5",
+  "notes": "Released COCO detection weights (Objects365 -> COCO), 640x640, PyTorch. Segment 0-12 s, 24 fps; heavy motion blur and banking camera."
+ },
+ "web_sem_reef_lady_musgrave": {
+  "title": "Great Barrier Reef coral survey - coral semantic segmentation",
+  "caption": "A snorkeller glides over table corals, branching Acropora and a sandy channel full of fish; every pixel is sorted into coral, sand, rock and fish.",
+  "source": "https://commons.wikimedia.org/wiki/File:Lady_Musgrave_Island_coral_survey_2022.webm",
+  "author": "Adam Fish (Wikimedia Commons)",
+  "license": "CC BY 3.0 (https://creativecommons.org/licenses/by/3.0)",
+  "model": "D-FINE-seg X semantic segmentation trained on Coralscapes (39 classes), 1024x2048 input",
+  "notes": "Coralscapes X checkpoint x_bs2_mos08_rcs (train split only; test 58.38 mIoU); Coralscapes is Red Sea imagery, this is Lady Musgrave Island (GBR) - an out-of-distribution generalization test. Segment 29-41 s, ~12 fps (every 5th frame of 59 fps). Fine-grained coral types (table / branching / other Acropora) can trade places frame to frame; the coarse groups (live coral, sand, fish, water) stay stable."
+ },
+ "web_kpts_street_dance": {
+  "title": "Street dance crew - human pose",
+  "caption": "Five dancers on a night-lit basketball court, each tracked with a 17-point skeleton through a full choreography.",
+  "source": "https://mixkit.co/free-stock-video/five-young-people-dancing-a-choreography-in-the-street-51295/",
+  "author": "Mixkit",
+  "license": "Mixkit Stock Video Free License (free for commercial and personal use, no attribution required)",
+  "model": "D-FINE-seg S keypoints (dfine_kpts_s_coco.pt), conf 0.75",
+  "notes": "Released COCO person-keypoint S weights, 640x640, PyTorch. Segment 0-12 s, 24 fps. conf 0.75 suppresses a painted mural of a face on the left wall that otherwise scores up to ~0.75 as 'person'; at that threshold a half-hidden dancer drops out for a few frames."
+ },
+ "web_seg_construction_truck": {
+  "title": "Dump truck on a building site - instance segmentation",
+  "caption": "A tipper truck rolls through a city-centre road works site and is traced as one clean mask, driver included.",
+  "source": "https://commons.wikimedia.org/wiki/File:Building_site_Ljubljana_2.webm",
+  "author": "Sounds of Changes (Wikimedia Commons)",
+  "license": "CC BY 3.0 (https://creativecommons.org/licenses/by/3.0)",
+  "model": "D-FINE-seg X instance segmentation (dfine_seg_x_coco.pt), conf 0.5",
+  "notes": "Released COCO instance-seg weights, 640x640, PyTorch. Segment 3.2-11.2 s (after the fade-in, before the truck passes the excavator), 25 fps, Igriska / Erjavceva street, Ljubljana (2019). The concrete planters are labeled 'potted plant'. The wheeled excavator is not a COCO class: its arm is briefly picked up as a low-score 'truck' (~0.6) for under a second."
+ },
+ "web_seg_offroad_rider": {
+  "title": "Off-road rider - instance segmentation from a chase drone",
+  "caption": "An FPV drone chases a dirt bike across a dry lake bed; the rider is traced pixel by pixel through dust and motion blur.",
+  "source": "https://mixkit.co/free-stock-video/man-traveling-through-the-desert-on-his-motorcycle-43114/",
+  "author": "Mixkit",
+  "license": "Mixkit Stock Video Free License (free for commercial and personal use, no attribution required)",
+  "model": "D-FINE-seg X instance segmentation (dfine_seg_x_coco.pt), conf 0.5, class 'person' only",
+  "notes": "Released COCO instance-seg weights, 640x640, PyTorch. Segment 0-12 s, 24 fps; heavy motion blur and banking camera. Only 'person' is exported (the motorcycle and everything else are filtered out)."
+ },
+ "web_sem_goose_dusk_road": {
+  "title": "Country road at dusk - off-road semantic segmentation (hero)",
+  "caption": "A winding country road at dusk: drivable ground, lane markings, roadside vegetation and sky, every pixel.",
+  "source": "https://mixkit.co/free-stock-video/traveling-on-a-nature-road-at-dusk-41575/",
+  "author": "Mixkit",
+  "license": "Mixkit Stock Video Free License (free for commercial and personal use, no attribution required)",
+  "model": "D-FINE-seg X semantic segmentation trained on GOOSE 2D (11 categories), 1024x2048 input",
+  "notes": "GOOSE val 69.84 mIoU, 95.63 pixel acc (official val split; categories from the GOOSE paper's Table II, void ignored). GOOSE groups asphalt with drivable ground ('terrain'); 'road' is curbs, sidewalks, markings and rails, so the lane lines show as 'road'. Segment 0-12 s, 24 fps. Shown with the model view on the left of the hero handle."
+ },
+ "web_sem_goose_camper_track": {
+  "title": "Camper on a rocky track - off-road semantic segmentation (hero alternative)",
+  "caption": "Camera on an expedition camper crawling along a rocky track: ground, bushes, single rocks and the vehicle itself.",
+  "source": "https://mixkit.co/free-stock-video/campervan-driving-on-rough-tracks-4245/",
+  "author": "Mixkit",
+  "license": "Mixkit Stock Video Free License (free for commercial and personal use, no attribution required)",
+  "model": "D-FINE-seg X semantic segmentation trained on GOOSE 2D (11 categories), 1024x2048 input",
+  "notes": "GOOSE val 69.84 mIoU. Segment 2-14 s, 30 fps. Unused for now: parked in extras/media/web as the hero swap option (this job writes to site/media/web)."
+ }
+}

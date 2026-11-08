@@ -1,0 +1,140 @@
+# D-FINE-seg
+
+> Open-source (Apache-2.0) framework and model family for real-time object detection, keypoint estimation, instance and semantic segmentation. Train on your own data, export to TensorRT, ONNX, OpenVINO, CoreML or LiteRT, and run from Python or a C++ runtime.
+
+- [Project page: interactive demos and benchmarks](https://dfine-seg.argoai.space/)
+- [Source code, docs and quick start](https://github.com/ArgoHA/D-FINE-seg)
+- [Python package (pip install dfine-seg)](https://pypi.org/project/dfine-seg/)
+- [Pretrained weights](https://huggingface.co/ArgoSA/D-FINE-seg)
+- [Paper (detection and instance segmentation)](https://arxiv.org/abs/2602.23043)
+- [Cityscapes benchmark vs YOLO26, RF-DETR, SegFormer, Mask2Former, EfficientViT](https://github.com/ArgoHA/cityscapes-benchmark)
+- [RadioGalaxyNET comparison vs Gal-DINO](https://github.com/ArgoHA/radiogalaxynet-dfine-vs-galdino)
+- [Author: Argo Saakyan](https://argoai.space/)
+
+## Questions
+
+### What is D-FINE-seg?
+
+An open-source framework and model family for real-time object detection, keypoint estimation, instance and semantic segmentation. One codebase, one config setting per task (`task: detect | segment | sem_seg | kpts`), five model sizes from N to X, from training to export and deployment. The detection core follows [D-FINE](https://arxiv.org/abs/2410.13842), a real-time detector from the DETR (detection transformer) family; the segmentation and keypoint heads and the rest of the pipeline are written from scratch.
+
+### Can I use it commercially?
+
+Yes. The code and the released COCO weights are Apache-2.0, not AGPL-3.0 like Ultralytics YOLO, and models you train on your own data are yours to ship. Only the Cityscapes semantic segmentation weights are non-commercial, inherited from the dataset.
+
+### How does it compare with YOLO26 and RF-DETR?
+
+On Cityscapes semantic segmentation at full 2048×1024, D-FINE-seg-X reaches 84.84 mIoU, the highest of 28 models, and D-FINE-seg-L matches YOLO26x-sem at lower latency. On Cityscapes detection and instance segmentation, the S model beats the larger YOLO26-M and RF-DETR-medium on F1 and is faster. On COCO person keypoints, S scores 65.4 AP vs 62.7 for YOLO26s-pose at the same latency. All end to end with TensorRT FP16 on one RTX 5070 Ti; tables under "All the numbers".
+
+### Can it find keypoints other than human pose?
+
+Yes. Each detected object gets K points with a presence and a visibility score, so the model learns whatever points your labels define, like the host galaxy of a radio source in the demo above. Labels can be YOLO-pose or COCO keypoints. The released weights are trained on COCO human pose and are a good starting point.
+
+### Does it work with thermal, depth or other extra channels?
+
+Yes. Train on RGB plus one extra channel (thermal, depth or near-infrared); pretrained RGB weights still initialize the model. The "Blinded by headlights" demo reads RGB and thermal together: 93.1 mAP50 on M3FD.
+
+### How do I train it on my own data?
+
+`pip install dfine-seg`, put images and labels in YOLO or COCO format, set the task and model size in the config, train. Export and benchmarking are one command each. See the [quick start](https://github.com/ArgoHA/D-FINE-seg#quick-start), the [video tutorial](https://youtu.be/_uEyRRw4miY) or the [Colab notebook](https://colab.research.google.com/drive/1ZV12qnUQMpC0g3j-0G-tYhmmdM98a41X?usp=sharing).
+
+## Results
+
+### Cityscapes semantic segmentation, whole 2048×1024 frames
+
+| Model | mIoU | Latency (ms) | Params (M) |
+| --- | ---: | ---: | ---: |
+| **D-FINE-seg-X** | 84.84 | 14.64 | 56.30 |
+| **D-FINE-seg-L** | 83.80 | 9.77 | 24.97 |
+| YOLO26x-sem | 83.58 | 13.58 | 40.13 |
+| Mask2Former-Swin-L | 83.33 | 94.07 | 215.46 |
+| Mask2Former-Swin-B | 83.29 | 79.85 | 106.89 |
+| EfficientViT-L2 | 83.20 | 19.87 | 52.61 |
+| EfficientViT-B3 | 83.01 | 21.58 | 39.60 |
+| YOLO26l-sem | 82.95 | 8.77 | 17.85 |
+| EfficientViT-L1 | 82.64 | 17.78 | 40.24 |
+| Mask2Former-Swin-S | 82.43 | 73.32 | 68.72 |
+| Mask2Former-Swin-T | 82.19 | 69.33 | 47.41 |
+| EfficientViT-B2 | 82.06 | 16.25 | 15.32 |
+| YOLO26m-sem | 82.02 | 7.54 | 14.30 |
+| **D-FINE-seg-M** | 81.41 | 8.26 | 15.95 |
+| SegFormer-B5 | 81.41 | 42.12 | 84.61 |
+| SegFormer-B4 | 81.15 | 36.78 | 64.01 |
+| **D-FINE-seg-S** | 81.12 | 6.37 | 7.99 |
+| YOLO26s-sem | 80.80 | 5.52 | 6.49 |
+| SegFormer-B3 | 80.77 | 29.43 | 47.24 |
+| EfficientViT-B1 | 80.53 | 13.35 | 4.80 |
+| SegFormer-B2 | 79.94 | 23.46 | 27.36 |
+| Mask2Former-R101 | 79.72 | 68.93 | 63.00 |
+| Mask2Former-R50 | 79.30 | 66.51 | 44.01 |
+| YOLO26n-sem | 78.25 | 4.71 | 1.63 |
+| **D-FINE-seg-N** | 77.99 | 4.21 | 3.36 |
+| SegFormer-B1 | 77.42 | 12.32 | 13.68 |
+| EfficientViT-B0 | 75.63 | 11.90 | 0.71 |
+| SegFormer-B0 | 74.43 | 8.78 | 3.72 |
+
+Cityscapes val, 500 images, one forward pass per frame. D-FINE-seg sizes trained by us; the other 23 are the official checkpoints, not retrained. End-to-end latency (each framework's own pre- and postprocessing), TensorRT FP16, batch 1, RTX 5070 Ti. Protocol and per-class IoU: https://github.com/ArgoHA/cityscapes-benchmark
+
+### Cityscapes object detection at 640
+
+| Model | F1 | Precision | Recall | Latency (ms) | Params (M) |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| **D-FINE-seg S** | 0.703 | 0.817 | 0.617 | 2.0 | 10.3 |
+| YOLO26-M | 0.691 | 0.792 | 0.613 | 3.0 | 21.8 |
+| RF-DETR-medium | 0.673 | 0.769 | 0.599 | 10.2 | 33.4 |
+
+Every model fine-tuned by us on Cityscapes, scored on the 500 val images, confidence threshold tuned per framework for the best F1. D-FINE-seg and YOLO26 run at 640×640, RF-DETR at its own default resolution (576×576). End-to-end latency (each framework's own pre- and postprocessing), TensorRT FP16, batch 1, RTX 5070 Ti. Protocol: https://github.com/ArgoHA/cityscapes-benchmark
+
+### Cityscapes instance segmentation at 640
+
+| Model | F1 | Precision | Recall | Latency (ms) | Params (M) |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| **D-FINE-seg S** | 0.661 | 0.748 | 0.592 | 3.1 | 11.9 |
+| RF-DETR-seg-medium | 0.620 | 0.789 | 0.510 | 16.8 | 35.4 |
+| YOLO26-M | 0.599 | 0.688 | 0.530 | 5.3 | 27.0 |
+
+Same protocol as detection; RF-DETR-seg-medium runs at its own default resolution (432×432). End-to-end latency (each framework's own pre- and postprocessing), TensorRT FP16, batch 1, RTX 5070 Ti. Protocol: https://github.com/ArgoHA/cityscapes-benchmark
+
+### Cityscapes semantic segmentation at 640
+
+| Model | mIoU | Latency (ms) | Params (M) |
+| --- | ---: | ---: | ---: |
+| **D-FINE-seg M** | 75.3 | 2.24 | 16.0 |
+| YOLO26-L | 73.9 | 3.56 | 17.9 |
+| YOLO26-M | 73.3 | 3.08 | 14.3 |
+| **D-FINE-seg S** | 72.8 | 1.79 | 8.0 |
+
+Every model fine-tuned by us on Cityscapes at 640×640, scored on the 500 val images at original resolution. Superseded by the full-resolution table above; the S row is the 1.8 ms semantic segmentation figure in the speed tiles. End-to-end latency (each framework's own pre- and postprocessing), TensorRT FP16, batch 1, RTX 5070 Ti. Protocol: https://github.com/ArgoHA/cityscapes-benchmark
+
+### COCO person keypoints (human pose)
+
+| Model | Keypoint AP | AP50 | AP75 | Person box AP | Latency (ms) |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| **D-FINE-seg S** | 65.4 | 88.0 | 71.1 | 64.2 | 2.10 |
+| YOLO26s-pose | 62.7 | 85.8 | 68.8 | 54.3 | 2.16 |
+
+COCO val2017 at 640, official COCO AP. D-FINE-seg S trained for 40 epochs; YOLO26s-pose is the released checkpoint (300 epochs, Objects365 init). End-to-end latency (each framework's own pre- and postprocessing), TensorRT FP16, batch 1, RTX 5070 Ti. Details: https://github.com/ArgoHA/D-FINE-seg/blob/main/CHANGELOG.md
+
+### RadioGalaxyNET: radio galaxies and their infrared hosts
+
+| Model | Box AP | Host keypoint AP | Latency (ms) | Params (M) | Input |
+| --- | ---: | ---: | ---: | ---: | ---: |
+| **D-FINE-seg S** | 67.1 | 70.5 | 1.8 | 13.4 | 640 |
+| Gal-DINO (published model) | 53.8 | 48.2 | 11.6 | 47 | 800 |
+
+Test split, 420 images, 611 sources, both models scored with Gal-DINO's own evaluation (paper: 53.7 box AP, 48.1 host AP). Over three training seeds D-FINE-seg S scores 66.4 ± 0.7 box AP and 70.9 ± 0.4 host AP. The best published box AP is 54.5 (Gal-YOLOv8, same paper, no hosts). End-to-end latency (each framework's own pre- and postprocessing), TensorRT FP16, batch 1, RTX 5070 Ti. Code and raw predictions: https://github.com/ArgoHA/radiogalaxynet-dfine-vs-galdino
+
+## Demos on the page
+
+- **Radio galaxies and their hosts** (Astronomy · keypoints): Jets from a black hole glow in radio (amber). The galaxy that launched them is a faint infrared dot (gray), often far from the brightest radio. The model boxes each radio galaxy, names its type and pins its host: 70.5 host AP vs 48.2, ahead of every published model. Model: S model · RadioGalaxyNET (EMU pilot survey) · host keypoint AP 70.5 vs 48.2 (Gal-DINO), box AP 67.1 vs 54.5 (best published) · 1.8 ms vs 11.6 ms · held-out val / test images.
+- **Foreign objects on an ore belt** (Mining · pixels): A hammer and a folding tool hidden in iron ore at full belt speed. The ore is mapped, and each foreign object is flagged before it can jam the crusher. Model: L model · 83.1 mIoU on held-out videos · lab-scale conveyor rig.
+- **Great Barrier Reef survey** (Underwater · pixels): A reef model trained on Red Sea surveys, run on a swim over the other side of the world. Live coral by type, sand, rock and fish. Model: X model · Coralscapes, 39 classes · 58.4 mIoU at 15 ms vs SegFormer-B5 58.2 at 39 ms.
+- **Street dance** (Dance · keypoints): Five dancers, 17 joints each, through every move. Hollow joints are ones the model knows are hidden. Model: S model · 65.4 keypoint AP at 2.1 ms (YOLO26s-pose: 62.7).
+- **Shibuya crossing** (City · boxes): Around 190 people in every frame, down to the far side of the crossing. A model trained on drone footage, looking down from above. Model: X model at 1280 px input · trained on VisDrone.
+- **Dump truck on a road works site** (Construction · outlines): The truck and its driver outlined as it crosses the site. The general model has never seen an excavator; a site-specific model is a small fine-tune away. Model: X model · COCO instance segmentation.
+- **Chase drone over a dry lake** (Off-road · outlines): The rider outlined at speed from an FPV drone, through motion blur and banking turns. Model: X model · COCO instance segmentation, person class only.
+- **Blinded by headlights** (Thermal · boxes): Glare hides the oncoming car from a regular camera, and the far car on the right barely shows in thermal. The model reads both cameras at once and finds all seven cars and both people. Switch views in the viewer. Model: L model · 4-channel RGB + thermal input · 93.1 mAP50 on M3FD test.
+- **Hero** (Off-road · pixels): Country road at dusk. Off-road model trained on GOOSE, 69.8 mIoU, full 2048×1024 frames. Largest model, 15 ms per frame. Drag the handle, hover a pixel.
+- **Pixels** (semantic segmentation): Every pixel gets a class: road, sidewalk, car, person, tree, sky. It is how a car knows where it can drive.
+- **Boxes** (object detection): A box and a class for every object. The fastest way to count, track and avoid things.
+- **Outlines** (instance segmentation): The exact outline of each object, so two people standing close together stay two separate people.
+- **Keypoints** (keypoint estimation): Named points on each object. This model is trained on human pose, 17 joints per person; train it on your own labels and it finds any keypoints you need.

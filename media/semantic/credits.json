@@ -1,0 +1,112 @@
+{
+ "stuttgart_triptych_sem": {
+  "title": "Same street: semantic segmentation",
+  "caption": "Every pixel labelled in real time: road, sidewalk, people, cars, buildings, trees, sky.",
+  "dataset": "Cityscapes - Stuttgart demo video (leftImg8bit_demoVideo, stuttgart_02)",
+  "source": "https://www.cityscapes-dataset.com/",
+  "license": "Cityscapes terms of use: non-commercial use only (academic research, teaching, publications, personal experimentation); https://www.cityscapes-dataset.com/license/",
+  "model": "D-FINE-seg-X, released Cityscapes sem-seg weights (dfine_sem_x_cityscapes.pt), native 1024x2048 input",
+  "split": "demo video (unlabeled sequence, not in Cityscapes train/val/test)",
+  "notes": "Cityscapes val 84.84 mIoU, 14.6 ms end-to-end (TensorRT fp16, RTX 5070 Ti, 1024x2048); test server 83.23 mIoU. Clip: stuttgart_02_clip01.mp4 from 0s, 12s, native 17 fps."
+ },
+ "stuttgart_crossing_sem": {
+  "title": "Busy pedestrian crossing, Stuttgart",
+  "caption": "Pedestrians stream across the road while every pixel is labelled: people, road, sidewalk, poles, buildings, trees.",
+  "dataset": "Cityscapes - Stuttgart demo video (leftImg8bit_demoVideo, stuttgart_02)",
+  "source": "https://www.cityscapes-dataset.com/",
+  "license": "Cityscapes terms of use: non-commercial use only (academic research, teaching, publications, personal experimentation); https://www.cityscapes-dataset.com/license/",
+  "model": "D-FINE-seg-X, released Cityscapes sem-seg weights (dfine_sem_x_cityscapes.pt), native 1024x2048 input",
+  "split": "demo video (unlabeled sequence, not in Cityscapes train/val/test)",
+  "notes": "Cityscapes val 84.84 mIoU, 14.6 ms end-to-end (TensorRT fp16, RTX 5070 Ti, 1024x2048); test server 83.23 mIoU. Clip: stuttgart_02_clip03.mp4 from 0s, 12s, native 17 fps."
+ },
+ "stuttgart_intersection_sem": {
+  "title": "City intersection, Stuttgart",
+  "caption": "Driving through a downtown intersection, the model separates road, sidewalk, cars, people, traffic signs and buildings in every frame.",
+  "dataset": "Cityscapes - Stuttgart demo video (leftImg8bit_demoVideo, stuttgart_00)",
+  "source": "https://www.cityscapes-dataset.com/",
+  "license": "Cityscapes terms of use: non-commercial use only (academic research, teaching, publications, personal experimentation); https://www.cityscapes-dataset.com/license/",
+  "model": "D-FINE-seg-X, released Cityscapes sem-seg weights (dfine_sem_x_cityscapes.pt), native 1024x2048 input",
+  "split": "demo video (unlabeled sequence, not in Cityscapes train/val/test)",
+  "notes": "Cityscapes val 84.84 mIoU, 14.6 ms end-to-end (TensorRT fp16, RTX 5070 Ti, 1024x2048); test server 83.23 mIoU. Clip: stuttgart_00_clip01.mp4 from 0s, 12s, native 17 fps."
+ },
+ "iron_belt_wood_sem": {
+  "title": "Foreign objects on an iron ore conveyor",
+  "caption": "Iron ore rushes past on a conveyor belt; the model marks the ore, oversized rocks and foreign objects like wood that must be removed before they jam the crusher.",
+  "dataset": "In-lab Image Dataset of Foreign Objects and Anomalies in Iron Ore Conveyor Belts (Sousa, de Oliveira, Coelho, Delabrida Silva; UFOP / Instituto Tecnologico Vale / Lakehead University), Mendeley Data V1, 2025, doi:10.17632/s25x2bnshz.1",
+  "source": "https://data.mendeley.com/datasets/s25x2bnshz/1",
+  "license": "CC BY 4.0 (attribution required)",
+  "model": "D-FINE-seg-L sem_seg, 640x640 input, fine-tuned from the Cityscapes L weights on SAM/Gemini-assisted pixel labels made from this dataset's frames",
+  "split": "val (video boardcamera_iron_ore_7_wood_3.mp4 is held out from training)",
+  "notes": "val mIoU 0.831, pixel acc 0.982 (4 classes: background, iron, big_rock, trash). Lab-scale conveyor rig recorded at ~119 fps; shown at real-time speed (every 4th frame). Clip: boardcamera_iron_ore_7_wood_3.mp4 from 15.3s, 11.6s."
+ },
+ "iron_belt_things_sem": {
+  "title": "Tools left on an iron ore conveyor",
+  "caption": "A hammer, a folding tool and a wooden block ride the belt with the ore: every pixel is sorted into ore, oversized rock or foreign object, at full belt speed.",
+  "dataset": "In-lab Image Dataset of Foreign Objects and Anomalies in Iron Ore Conveyor Belts (Sousa, de Oliveira, Coelho, Delabrida Silva; UFOP / Instituto Tecnologico Vale / Lakehead University), Mendeley Data V1, 2025, doi:10.17632/s25x2bnshz.1",
+  "source": "https://data.mendeley.com/datasets/s25x2bnshz/1",
+  "license": "CC BY 4.0 (attribution required)",
+  "model": "D-FINE-seg-L sem_seg, 640x640 input, fine-tuned from the Cityscapes L weights on SAM/Gemini-assisted pixel labels made from this dataset's frames",
+  "split": "val (video boardcamera_iron_ore_things_2.mp4 is held out from training)",
+  "notes": "val mIoU 0.831, pixel acc 0.982 (4 classes: background, iron, big_rock, trash). Lab-scale conveyor rig recorded at ~119 fps; shown at real-time speed (every 4th frame). Clip: boardcamera_iron_ore_things_2.mp4 from 15.0s, 8.2s."
+ },
+ "iron_belt_canga_sem": {
+  "title": "Boulders and plastic on an iron ore conveyor",
+  "caption": "Oversized boulders and a strip of plastic arrive with the ore; the model separates fine ore, big rocks and foreign objects frame by frame.",
+  "dataset": "In-lab Image Dataset of Foreign Objects and Anomalies in Iron Ore Conveyor Belts (Sousa, de Oliveira, Coelho, Delabrida Silva; UFOP / Instituto Tecnologico Vale / Lakehead University), Mendeley Data V1, 2025, doi:10.17632/s25x2bnshz.1",
+  "source": "https://data.mendeley.com/datasets/s25x2bnshz/1",
+  "license": "CC BY 4.0 (attribution required)",
+  "model": "D-FINE-seg-L sem_seg, 640x640 input, fine-tuned from the Cityscapes L weights on SAM/Gemini-assisted pixel labels made from this dataset's frames",
+  "split": "val (video boardcamera_iron_ore_canga3.mp4 is held out from training)",
+  "notes": "val mIoU 0.831, pixel acc 0.982 (4 classes: background, iron, big_rock, trash). Lab-scale conveyor rig recorded at ~119 fps; shown at real-time speed (every 4th frame). Clip: boardcamera_iron_ore_canga3.mp4 from 13.9s, 7.6s."
+ },
+ "coral_reef_garden_sem": {
+  "title": "Reef survey transect",
+  "caption": "A reef survey frame labelled pixel by pixel into 39 classes: living, bleached and dead corals by type, sand, rubble, fish and the survey tape.",
+  "dataset": "Coralscapes (EPFL-ECEO), first general-purpose dense semantic segmentation dataset for coral reefs; 39 classes",
+  "source": "https://huggingface.co/datasets/EPFL-ECEO/coralscapes (paper: arXiv 2503.20000)",
+  "license": "Apache-2.0",
+  "model": "D-FINE-seg-X sem_seg, native 1024x2048 input, trained on the Coralscapes train split only (exp x_bs2_mos08_rcs)",
+  "split": "test (site22_000068_003587)",
+  "notes": "Coralscapes test 58.38 mIoU / 82.50 pixel acc at 15 ms end-to-end (TensorRT fp16, RTX 5070 Ti) vs SegFormer-B5 58.21 / 83.02 at 39 ms."
+ },
+ "coral_reef_fish_sem": {
+  "title": "Living reef with fish",
+  "caption": "Massive, branching and table corals, fish and the transect line, each pixel assigned to one of 39 reef classes.",
+  "dataset": "Coralscapes (EPFL-ECEO), first general-purpose dense semantic segmentation dataset for coral reefs; 39 classes",
+  "source": "https://huggingface.co/datasets/EPFL-ECEO/coralscapes (paper: arXiv 2503.20000)",
+  "license": "Apache-2.0",
+  "model": "D-FINE-seg-X sem_seg, native 1024x2048 input, trained on the Coralscapes train split only (exp x_bs2_mos08_rcs)",
+  "split": "test (site23_000003_001400)",
+  "notes": "Coralscapes test 58.38 mIoU / 82.50 pixel acc at 15 ms end-to-end (TensorRT fp16, RTX 5070 Ti) vs SegFormer-B5 58.21 / 83.02 at 39 ms."
+ },
+ "coral_reef_porites_sem": {
+  "title": "Close-up of massive corals",
+  "caption": "Close-up of boulder corals along a survey tape: the model tells living coral from algae-covered rock and other substrate.",
+  "dataset": "Coralscapes (EPFL-ECEO), first general-purpose dense semantic segmentation dataset for coral reefs; 39 classes",
+  "source": "https://huggingface.co/datasets/EPFL-ECEO/coralscapes (paper: arXiv 2503.20000)",
+  "license": "Apache-2.0",
+  "model": "D-FINE-seg-X sem_seg, native 1024x2048 input, trained on the Coralscapes train split only (exp x_bs2_mos08_rcs)",
+  "split": "test (site34_000015_005169)",
+  "notes": "Coralscapes test 58.38 mIoU / 82.50 pixel acc at 15 ms end-to-end (TensorRT fp16, RTX 5070 Ti) vs SegFormer-B5 58.21 / 83.02 at 39 ms."
+ },
+ "coral_reef_diver_sem": {
+  "title": "Diver on a survey",
+  "caption": "A diver lays out a reef transect: the model separates the diver, sand, coral and survey tools in a single pass.",
+  "dataset": "Coralscapes (EPFL-ECEO), first general-purpose dense semantic segmentation dataset for coral reefs; 39 classes",
+  "source": "https://huggingface.co/datasets/EPFL-ECEO/coralscapes (paper: arXiv 2503.20000)",
+  "license": "Apache-2.0",
+  "model": "D-FINE-seg-X sem_seg, native 1024x2048 input, trained on the Coralscapes train split only (exp x_bs2_mos08_rcs)",
+  "split": "test (site26_000038_016201)",
+  "notes": "Coralscapes test 58.38 mIoU / 82.50 pixel acc at 15 ms end-to-end (TensorRT fp16, RTX 5070 Ti) vs SegFormer-B5 58.21 / 83.02 at 39 ms."
+ },
+ "coral_reef_bleached_sem": {
+  "title": "Bleached coral",
+  "caption": "Bleached corals (the white patches) are mapped apart from living coral, dead coral and bare rock: the kind of map reef scientists use to measure bleaching.",
+  "dataset": "Coralscapes (EPFL-ECEO), first general-purpose dense semantic segmentation dataset for coral reefs; 39 classes",
+  "source": "https://huggingface.co/datasets/EPFL-ECEO/coralscapes (paper: arXiv 2503.20000)",
+  "license": "Apache-2.0",
+  "model": "D-FINE-seg-X sem_seg, native 1024x2048 input, trained on the Coralscapes train split only (exp x_bs2_mos08_rcs)",
+  "split": "test (site1_000021_005259)",
+  "notes": "Coralscapes test 58.38 mIoU / 82.50 pixel acc at 15 ms end-to-end (TensorRT fp16, RTX 5070 Ti) vs SegFormer-B5 58.21 / 83.02 at 39 ms."
+ }
+}

@@ -1,0 +1,6 @@
+# dfine-seg.argoai.space: everything here is public and may be indexed, quoted and used for AI.
+User-agent: *
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
+Allow: /
+
+Sitemap: https://dfine-seg.argoai.space/sitemap.xml

@@ -1,0 +1,232 @@
+{
+ "stuttgart_det": {
+  "title": "Downtown Stuttgart - detection",
+  "caption": "Every car, bike, motorbike and pedestrian on a busy city street is boxed and labeled frame by frame.",
+  "model": "D-FINE-seg X detection (dfine_x_obj2coco.pt), conf 0.5",
+  "notes": "Released COCO detection weights (Objects365 pretraining, then COCO), 640x640 input, PyTorch inference (box AP of these weights not re-measured here). Ego-vehicle hood detections filtered. Segment: stuttgart_02_clip02.mp4 0-12 s (17 fps).",
+  "dataset": "Cityscapes demoVideo (Stuttgart)",
+  "source": "https://www.cityscapes-dataset.com/ (leftImg8bit_demoVideo)",
+  "license": "Cityscapes terms of use: non-commercial use only (research, teaching, publications); frames from leftImg8bit_demoVideo stuttgart sequences",
+  "split": "demoVideo (unlabeled sequences, never used for training these COCO models)"
+ },
+ "stuttgart_seg": {
+  "title": "Pedestrian crossing - instance segmentation",
+  "caption": "Each person, bike and car gets its own pixel-accurate outline as people cross in front of the car.",
+  "model": "D-FINE-seg X instance segmentation (dfine_seg_x_coco.pt), conf 0.5",
+  "notes": "Released COCO instance-seg weights, 640x640 input. Internal COCO val2017 eval (official scorer, 5000 images): mask AP 45.1 / box AP 55.0. Ego-vehicle hood detections filtered. Segment: stuttgart_02_clip04.mp4 0-12 s (17 fps).",
+  "dataset": "Cityscapes demoVideo (Stuttgart)",
+  "source": "https://www.cityscapes-dataset.com/ (leftImg8bit_demoVideo)",
+  "license": "Cityscapes terms of use: non-commercial use only (research, teaching, publications); frames from leftImg8bit_demoVideo stuttgart sequences",
+  "split": "demoVideo (unlabeled sequences, never used for training these COCO models)"
+ },
+ "stuttgart_triptych_det": {
+  "title": "Same street - detection",
+  "caption": "Objects on the street found and labeled with boxes.",
+  "model": "D-FINE-seg X detection (dfine_x_obj2coco.pt), conf 0.5",
+  "notes": "Released COCO detection weights (Objects365 pretraining, then COCO), 640x640 input, PyTorch inference (box AP of these weights not re-measured here). Ego-vehicle hood detections filtered. Segment: stuttgart_02_clip01.mp4 0-12 s (17 fps).",
+  "dataset": "Cityscapes demoVideo (Stuttgart)",
+  "source": "https://www.cityscapes-dataset.com/ (leftImg8bit_demoVideo)",
+  "license": "Cityscapes terms of use: non-commercial use only (research, teaching, publications); frames from leftImg8bit_demoVideo stuttgart sequences",
+  "split": "demoVideo (unlabeled sequences, never used for training these COCO models)"
+ },
+ "stuttgart_triptych_seg": {
+  "title": "Same street - instance segmentation",
+  "caption": "The same objects, each outlined with its own mask.",
+  "model": "D-FINE-seg X instance segmentation (dfine_seg_x_coco.pt), conf 0.5",
+  "notes": "Released COCO instance-seg weights, 640x640 input. Internal COCO val2017 eval (official scorer, 5000 images): mask AP 45.1 / box AP 55.0. Ego-vehicle hood detections filtered. Segment: stuttgart_02_clip01.mp4 0-12 s (17 fps).",
+  "dataset": "Cityscapes demoVideo (Stuttgart)",
+  "source": "https://www.cityscapes-dataset.com/ (leftImg8bit_demoVideo)",
+  "license": "Cityscapes terms of use: non-commercial use only (research, teaching, publications); frames from leftImg8bit_demoVideo stuttgart sequences",
+  "split": "demoVideo (unlabeled sequences, never used for training these COCO models)"
+ },
+ "stuttgart_triptych_kpts": {
+  "title": "Same street - human pose",
+  "caption": "Every pedestrian's body pose: 17 joints per person, found in every frame.",
+  "model": "D-FINE-seg S keypoints (dfine_kpts_s_coco.pt), conf 0.5",
+  "notes": "Released COCO person-keypoint S weights: 65.4 keypoint AP / 64.2 person box AP on val2017, 2.10 ms TensorRT fp16 (RTX 5070 Ti). Ego-vehicle hood detections filtered. Segment: stuttgart_02_clip01.mp4 0-12 s (17 fps).",
+  "dataset": "Cityscapes demoVideo (Stuttgart)",
+  "source": "https://www.cityscapes-dataset.com/ (leftImg8bit_demoVideo)",
+  "license": "Cityscapes terms of use: non-commercial use only (research, teaching, publications); frames from leftImg8bit_demoVideo stuttgart sequences",
+  "split": "demoVideo (unlabeled sequences, never used for training these COCO models)"
+ },
+ "visdrone_night_plaza": {
+  "title": "Night square from a drone",
+  "caption": "From high above a square at night, the model picks out each of the hundreds of people and bicycles, even though each one is tiny in the frame.",
+  "dataset": "VisDrone2019-DET",
+  "split": "test-dev (image 0000066_01097_d_0000002)",
+  "source": "https://github.com/VisDrone/VisDrone-Dataset",
+  "license": "No explicit license on the official VisDrone repo; mirrors list CC BY-NC-SA 3.0. Treat as non-commercial research use; images (c) AISKYEYE team, Tianjin University; cite Zhu et al., TPAMI 2021",
+  "model": "D-FINE-seg X detection fine-tuned on VisDrone train, conf 0.45",
+  "notes": "640x640 input, 75 epochs from COCO init. VisDrone test-dev: mAP50 0.443, mAP50-95 0.260, F1 0.591; TensorRT fp16 4.5 ms (RTX 5070 Ti), F1 0.611 vs YOLO26-X 0.584 in the repo benchmark."
+ },
+ "visdrone_market_road": {
+  "title": "Busy market street from a drone",
+  "caption": "Cars, vans, scooters and pedestrians on a crowded market street, each found from a drone's bird's-eye view.",
+  "dataset": "VisDrone2019-DET",
+  "split": "test-dev (image 0000127_00002_d_0000119)",
+  "source": "https://github.com/VisDrone/VisDrone-Dataset",
+  "license": "No explicit license on the official VisDrone repo; mirrors list CC BY-NC-SA 3.0. Treat as non-commercial research use; images (c) AISKYEYE team, Tianjin University; cite Zhu et al., TPAMI 2021",
+  "model": "D-FINE-seg X detection fine-tuned on VisDrone train, conf 0.45",
+  "notes": "640x640 input, 75 epochs from COCO init. VisDrone test-dev: mAP50 0.443, mAP50-95 0.260, F1 0.591; TensorRT fp16 4.5 ms (RTX 5070 Ti), F1 0.611 vs YOLO26-X 0.584 in the repo benchmark."
+ },
+ "visdrone_crossroads": {
+  "title": "Crossroads from high above",
+  "caption": "From high above a city crossroads, every car, scooter and rider is found, even the ones only a few pixels wide.",
+  "dataset": "VisDrone2019-DET",
+  "split": "test-dev (image 9999979_00000_d_0000045)",
+  "source": "https://github.com/VisDrone/VisDrone-Dataset",
+  "license": "No explicit license on the official VisDrone repo; mirrors list CC BY-NC-SA 3.0. Treat as non-commercial research use; images (c) AISKYEYE team, Tianjin University; cite Zhu et al., TPAMI 2021",
+  "model": "D-FINE-seg X detection fine-tuned on VisDrone train, conf 0.45",
+  "notes": "640x640 input, 75 epochs from COCO init. VisDrone test-dev: mAP50 0.443, mAP50-95 0.260, F1 0.591; TensorRT fp16 4.5 ms (RTX 5070 Ti), F1 0.611 vs YOLO26-X 0.584 in the repo benchmark."
+ },
+ "m3fd_night_stairs_ir": {
+  "title": "Night crowd, thermal + visible",
+  "caption": "A group of people at night in near darkness, each found by fusing a regular camera with a heat camera.",
+  "dataset": "M3FD (TarDAL, CVPR 2022)",
+  "split": "test (local split, image 03964)",
+  "source": "https://github.com/JinyuanLiu-CV/TarDAL",
+  "license": "M3FD: released by the TarDAL authors for research; no explicit image license found - treat as research / non-commercial, attribute Liu et al. CVPR 2022",
+  "model": "D-FINE-seg L detection, 4-channel RGB+thermal input, trained on M3FD train, conf 0.5",
+  "notes": "Model input is the 4-channel visible+thermal stack; this file shows the thermal (IR) view of the same registered pair (twin asset with identical predictions: m3fd_night_stairs_vis). 640x640, COCO init, 55 epochs. M3FD test: mAP50 0.931, mAP50-95 0.656, F1 0.883."
+ },
+ "m3fd_night_stairs_vis": {
+  "title": "Night crowd, thermal + visible",
+  "caption": "A group of people at night in near darkness, each found by fusing a regular camera with a heat camera.",
+  "dataset": "M3FD (TarDAL, CVPR 2022)",
+  "split": "test (local split, image 03964)",
+  "source": "https://github.com/JinyuanLiu-CV/TarDAL",
+  "license": "M3FD: released by the TarDAL authors for research; no explicit image license found - treat as research / non-commercial, attribute Liu et al. CVPR 2022",
+  "model": "D-FINE-seg L detection, 4-channel RGB+thermal input, trained on M3FD train, conf 0.5",
+  "notes": "Model input is the 4-channel visible+thermal stack; this file shows the visible view of the same registered pair (twin asset with identical predictions: m3fd_night_stairs_ir). 640x640, COCO init, 55 epochs. M3FD test: mAP50 0.931, mAP50-95 0.656, F1 0.883."
+ },
+ "m3fd_night_street_ir": {
+  "title": "Dark street at night",
+  "caption": "People and parked cars on an unlit street, detected from a combined visible and thermal image.",
+  "dataset": "M3FD (TarDAL, CVPR 2022)",
+  "split": "test (local split, image 00601)",
+  "source": "https://github.com/JinyuanLiu-CV/TarDAL",
+  "license": "M3FD: released by the TarDAL authors for research; no explicit image license found - treat as research / non-commercial, attribute Liu et al. CVPR 2022",
+  "model": "D-FINE-seg L detection, 4-channel RGB+thermal input, trained on M3FD train, conf 0.5",
+  "notes": "Model input is the 4-channel visible+thermal stack; this file shows the thermal (IR) view of the same registered pair (twin asset with identical predictions: m3fd_night_street_vis). 640x640, COCO init, 55 epochs. M3FD test: mAP50 0.931, mAP50-95 0.656, F1 0.883."
+ },
+ "m3fd_night_street_vis": {
+  "title": "Dark street at night",
+  "caption": "People and parked cars on an unlit street, detected from a combined visible and thermal image.",
+  "dataset": "M3FD (TarDAL, CVPR 2022)",
+  "split": "test (local split, image 00601)",
+  "source": "https://github.com/JinyuanLiu-CV/TarDAL",
+  "license": "M3FD: released by the TarDAL authors for research; no explicit image license found - treat as research / non-commercial, attribute Liu et al. CVPR 2022",
+  "model": "D-FINE-seg L detection, 4-channel RGB+thermal input, trained on M3FD train, conf 0.5",
+  "notes": "Model input is the 4-channel visible+thermal stack; this file shows the visible view of the same registered pair (twin asset with identical predictions: m3fd_night_street_ir). 640x640, COCO init, 55 epochs. M3FD test: mAP50 0.931, mAP50-95 0.656, F1 0.883."
+ },
+ "taco_cup": {
+  "title": "Abandoned drink cup",
+  "caption": "A discarded drink cup is outlined piece by piece: the paper cup, its plastic lid and the straw are each recognized as separate items.",
+  "dataset": "TACO (Trash Annotations in Context)",
+  "split": "val (local split, batch_5_000055.JPG)",
+  "source": "TACO (tacodataset.org, github.com/pedropro/TACO), image https://img.tacodataset.org/img/47856204461.jpg",
+  "license": "Per-image license in TACO annotations.json: None (none given; TACO's own photos). TACO is commonly listed as CC BY 4.0 (Proen\u00e7a & Sim\u00f5es 2020); repo code is MIT. Unverified - attribute TACO.",
+  "model": "D-FINE-seg X instance segmentation fine-tuned on TACO (59 classes), conf 0.5",
+  "notes": "640x640, COCO init. TACO val: box mAP50 0.363, F1 0.388 (TensorRT F1 0.380 vs YOLO26-seg X 0.300 in the repo benchmark). A hard, long-tail dataset - these images are hand-picked examples where the model is right."
+ },
+ "taco_beach_bag": {
+  "title": "Plastic bag in the water",
+  "caption": "A plastic carrier bag drifting in shallow water at the beach, outlined pixel by pixel.",
+  "dataset": "TACO (Trash Annotations in Context)",
+  "split": "val (local split, batch_9_000020.jpg)",
+  "source": "TACO (tacodataset.org, github.com/pedropro/TACO), image https://img.tacodataset.org/img/48661120173.jpg",
+  "license": "Per-image license in TACO annotations.json: 'CC' (Creative Commons, variant unspecified). TACO is commonly listed as CC BY 4.0 (Proen\u00e7a & Sim\u00f5es 2020); repo code is MIT. Unverified - attribute TACO.",
+  "model": "D-FINE-seg X instance segmentation fine-tuned on TACO (59 classes), conf 0.5",
+  "notes": "640x640, COCO init. TACO val: box mAP50 0.363, F1 0.388 (TensorRT F1 0.380 vs YOLO26-seg X 0.300 in the repo benchmark). A hard, long-tail dataset - these images are hand-picked examples where the model is right."
+ },
+ "taco_can_cigarette": {
+  "title": "Can and cigarette butt",
+  "caption": "On a cobblestone sidewalk the model finds both a drink can and a tiny cigarette butt.",
+  "dataset": "TACO (Trash Annotations in Context)",
+  "split": "val (local split, batch_9_000001.jpg)",
+  "source": "TACO (tacodataset.org, github.com/pedropro/TACO), image https://img.tacodataset.org/img/48631087367.jpg",
+  "license": "Per-image license in TACO annotations.json: 'CC' (Creative Commons, variant unspecified). TACO is commonly listed as CC BY 4.0 (Proen\u00e7a & Sim\u00f5es 2020); repo code is MIT. Unverified - attribute TACO.",
+  "model": "D-FINE-seg X instance segmentation fine-tuned on TACO (59 classes), conf 0.5",
+  "notes": "640x640, COCO init. TACO val: box mAP50 0.363, F1 0.388 (TensorRT F1 0.380 vs YOLO26-seg X 0.300 in the repo benchmark). A hard, long-tail dataset - these images are hand-picked examples where the model is right."
+ },
+ "coco_elephants": {
+  "title": "Elephant bath",
+  "caption": "Elephants and their keepers in a river, each one cut out with its own precise mask.",
+  "dataset": "COCO 2017",
+  "split": "val2017 (image id 465180)",
+  "source": "COCO val2017 000000465180.jpg, Flickr original http://farm5.staticflickr.com/4119/5415267933_d9e105c25a_z.jpg",
+  "license": "Attribution-ShareAlike License 2.0 (http://creativecommons.org/licenses/by-sa/2.0/) per COCO image metadata; Flickr author not recorded in COCO - credit 'Flickr user via COCO'",
+  "model": "D-FINE-seg X instance segmentation (dfine_seg_x_coco.pt), conf 0.5",
+  "notes": "Released COCO instance-seg weights, 640x640. Internal COCO val2017 eval (official scorer, 5000 images): mask AP 45.1 / box AP 55.0."
+ },
+ "coco_zebras": {
+  "title": "Zebra herd",
+  "caption": "Overlapping zebras in a herd are separated into individual animals, stripes and all.",
+  "dataset": "COCO 2017",
+  "split": "val2017 (image id 185409)",
+  "source": "COCO val2017 000000185409.jpg, Flickr original http://farm6.staticflickr.com/5454/8881324394_97e0322747_z.jpg",
+  "license": "Attribution-ShareAlike License 2.0 (http://creativecommons.org/licenses/by-sa/2.0/) per COCO image metadata; Flickr author not recorded in COCO - credit 'Flickr user via COCO'",
+  "model": "D-FINE-seg X instance segmentation (dfine_seg_x_coco.pt), conf 0.5",
+  "notes": "Released COCO instance-seg weights, 640x640. Internal COCO val2017 eval (official scorer, 5000 images): mask AP 45.1 / box AP 55.0."
+ },
+ "coco_bear": {
+  "title": "Bear and vultures",
+  "caption": "A black bear surrounded by vultures - every animal gets its own outline.",
+  "dataset": "COCO 2017",
+  "split": "val2017 (image id 229997)",
+  "source": "COCO val2017 000000229997.jpg, Flickr original http://farm3.staticflickr.com/2771/4517379000_2189421767_z.jpg",
+  "license": "Attribution-ShareAlike License 2.0 (http://creativecommons.org/licenses/by-sa/2.0/) per COCO image metadata; Flickr author not recorded in COCO - credit 'Flickr user via COCO'",
+  "model": "D-FINE-seg X instance segmentation (dfine_seg_x_coco.pt), conf 0.5",
+  "notes": "Released COCO instance-seg weights, 640x640. Internal COCO val2017 eval (official scorer, 5000 images): mask AP 45.1 / box AP 55.0."
+ },
+ "coco_kpts_skate": {
+  "title": "Skate bowl",
+  "caption": "Skateboarders mid-trick: the model finds 17 body joints per person, even in unusual poses.",
+  "dataset": "COCO 2017",
+  "split": "val2017 (image id 65350)",
+  "source": "COCO val2017 000000065350.jpg, Flickr original http://farm5.staticflickr.com/4139/4869131880_ae3de10447_z.jpg",
+  "license": "Attribution License 2.0 (http://creativecommons.org/licenses/by/2.0/) per COCO image metadata; Flickr author not recorded in COCO - credit 'Flickr user via COCO'",
+  "model": "D-FINE-seg S keypoints (dfine_kpts_s_coco.pt), conf 0.5",
+  "notes": "Released COCO person-keypoint S weights: 65.4 keypoint AP / 64.2 person box AP on val2017, 2.10 ms TensorRT fp16 (RTX 5070 Ti)."
+ },
+ "coco_kpts_ski": {
+  "title": "Ski tour break",
+  "caption": "A group of ski tourers resting on a mountain slope, each person's pose found at once.",
+  "dataset": "COCO 2017",
+  "split": "val2017 (image id 516677)",
+  "source": "COCO val2017 000000516677.jpg, Flickr original http://farm6.staticflickr.com/5186/5789961160_d750638deb_z.jpg",
+  "license": "Attribution License 2.0 (http://creativecommons.org/licenses/by/2.0/) per COCO image metadata; Flickr author not recorded in COCO - credit 'Flickr user via COCO'",
+  "model": "D-FINE-seg S keypoints (dfine_kpts_s_coco.pt), conf 0.5",
+  "notes": "Released COCO person-keypoint S weights: 65.4 keypoint AP / 64.2 person box AP on val2017, 2.10 ms TensorRT fp16 (RTX 5070 Ti)."
+ },
+ "m3fd_headlights_ir": {
+  "title": "Blinded by headlights",
+  "caption": "Rainy night road: oncoming headlights wash out the nearest car in a regular camera, while a far car shows mostly through its tail lights and is faint in thermal. The model reads both images together and finds all of them.",
+  "dataset": "M3FD (TarDAL, CVPR 2022)",
+  "split": "val (local split, image 00694; not trained on)",
+  "source": "https://github.com/JinyuanLiu-CV/TarDAL",
+  "license": "M3FD: released by the TarDAL authors for research; no explicit image license found - treat as research / non-commercial, attribute Liu et al. CVPR 2022",
+  "model": "D-FINE-seg L detection, 4-channel RGB+thermal input, trained on M3FD train, conf 0.5",
+  "notes": "Model input is the 4-channel visible+thermal stack; this file shows the thermal (IR) view of the same registered pair (twin asset with identical predictions: m3fd_headlights_vis). 640x640, COCO init, 55 epochs. M3FD test: mAP50 0.931, mAP50-95 0.656, F1 0.883."
+ },
+ "m3fd_headlights_vis": {
+  "title": "Blinded by headlights",
+  "caption": "Rainy night road: oncoming headlights wash out the nearest car in a regular camera, while a far car shows mostly through its tail lights and is faint in thermal. The model reads both images together and finds all of them.",
+  "dataset": "M3FD (TarDAL, CVPR 2022)",
+  "split": "val (local split, image 00694; not trained on)",
+  "source": "https://github.com/JinyuanLiu-CV/TarDAL",
+  "license": "M3FD: released by the TarDAL authors for research; no explicit image license found - treat as research / non-commercial, attribute Liu et al. CVPR 2022",
+  "model": "D-FINE-seg L detection, 4-channel RGB+thermal input, trained on M3FD train, conf 0.5",
+  "notes": "Model input is the 4-channel visible+thermal stack; this file shows the visible view of the same registered pair (twin asset with identical predictions: m3fd_headlights_ir). 640x640, COCO init, 55 epochs. M3FD test: mAP50 0.931, mAP50-95 0.656, F1 0.883."
+ },
+ "radio_galaxies": {
+  "title": "Radio galaxies and their host galaxies",
+  "caption": "Radio galaxies from the EMU pilot survey with the infrared galaxy that hosts each one.",
+  "dataset": "RadioGalaxyNET (Gupta et al., PASA 2024; CSIRO DAP 61068)",
+  "split": "val / test (not trained on): test/571553_299.png, test/610607_414.png, val/502017_196.png, test/525944_98.png, test/562538_198.png, test/612652_126.png, val/503456_335.png, test/581732_191.png, test/534013_90.png, val/512915_309.png, test/561457_107.png, val/530137_379.png",
+  "source": "https://doi.org/10.25919/btk3-vx79",
+  "license": "CC BY-NC-SA 4.0 (images re-rendered for display: infrared gray, radio amber)",
+  "model": "D-FINE-seg S keypoints (1 host keypoint), trained on RadioGalaxyNET train, conf 0.5, class-agnostic NMS",
+  "notes": "Picked among images the model gets fully right (all sources, right class, host OKS >= 0.5, no extra boxes). Benchmark: 67.1 box AP / 70.5 host keypoint AP vs Gal-DINO 53.7 / 48.1, repo radiogalaxynet-dfine-vs-galdino."
+ }
+}
