@@ -5,14 +5,11 @@ const CS = 'Cityscapes demo video (Daimler AG, MPI Informatics, TU Darmstadt), n
 const MIXKIT = (url) => `Mixkit, free license: ${url}`;
 
 const GOOSE = 'Off-road model trained on GOOSE, the German Outdoor and Offroad Dataset (Fraunhofer IOSB, UniBw Munich), CC BY-SA 4.0: https://goose-dataset.de';
-// Swap option: camper on a rocky track (camera on the vehicle), parked in extras/media/web/web_sem_goose_camper_track.*
-// To use it: move those files into site/media/web, set src to 'media/web/web_sem_goose_camper_track', drop `flip`
-// (its track is on the right) and swap the footage URL in `credit` for
-// mixkit.co/free-stock-video/campervan-driving-on-rough-tracks-4245
+const GOOSE_PALETTE = { terrain: '#c4a26e' }; // GOOSE terrain = drivable ground
 export const HERO = {
   src: 'media/web/web_sem_goose_dusk_road',
   poster: true,
-  opts: { flip: true, palette: { terrain: '#c4a26e' } }, // model view left of the handle; GOOSE terrain = drivable ground
+  opts: { flip: true, palette: GOOSE_PALETTE }, // model view left of the handle
   caption: 'Country road at dusk. Off-road model trained on GOOSE, 69.8 mIoU, full 2048×1024 frames. Largest model, 15 ms per frame. Drag the handle, hover a pixel.',
   credit: `Hero footage: ${MIXKIT('mixkit.co/free-stock-video/traveling-on-a-nature-road-at-dusk-41575')}. ${GOOSE}`,
 };
@@ -91,21 +88,13 @@ export const GALLERY = [
     credit: `Shibuya footage: ${MIXKIT('mixkit.co/free-stock-video/crowds-of-people-cross-a-street-junction-4401')}; model trained on VisDrone (AISKYEYE, Tianjin University), non-commercial research use`,
   },
   {
-    src: 'media/web/web_seg_construction_truck', poster: true,
-    opts: { hide: ['potted plant'] },
-    kicker: 'Construction · outlines',
-    title: 'Dump truck on a road works site',
-    caption: 'The truck and its driver outlined as it crosses the site. The general model has never seen an excavator; a site-specific model is a small fine-tune away.',
-    meta: 'X model · COCO instance segmentation',
-    credit: 'Road works footage: Sounds of Changes, CC BY 3.0, Wikimedia Commons ("Building site Ljubljana 2")',
-  },
-  {
-    src: 'media/web/web_seg_offroad_rider', poster: true,
-    kicker: 'Off-road · outlines',
-    title: 'Chase drone over a dry lake',
-    caption: 'The rider outlined at speed from an FPV drone, through motion blur and banking turns.',
-    meta: 'X model · COCO instance segmentation, person class only',
-    credit: MIXKIT('mixkit.co/free-stock-video/man-traveling-through-the-desert-on-his-motorcycle-43114'),
+    src: 'media/web/web_sem_goose_camper_track', poster: true, wide: true,
+    opts: { palette: GOOSE_PALETTE },
+    kicker: 'Off-road · pixels',
+    title: 'Camper on a rocky track',
+    caption: 'A camera on an expedition camper crawling over rocks. The off-road model from the top of the page maps the ground, bushes, single rocks and the camper itself.',
+    meta: 'X model · GOOSE, 11 classes · 69.8 mIoU at 2048×1024',
+    credit: `Camper footage: ${MIXKIT('mixkit.co/free-stock-video/campervan-driving-on-rough-tracks-4245')}; same GOOSE model as the hero`,
   },
   {
     src: 'media/local/m3fd_headlights_ir', wide: true,

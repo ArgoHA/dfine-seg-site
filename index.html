@@ -146,8 +146,7 @@
 <div class="card" role="button" tabindex="0" aria-label="Open Great Barrier Reef survey"><div class="card-media"><div class="stage"></div></div><div class="card-body"><span class="card-kicker">Underwater · pixels</span><h3>Great Barrier Reef survey</h3><p>A reef model trained on Red Sea surveys, run on a swim over the other side of the world. Live coral by type, sand, rock and fish.</p></div></div>
 <div class="card" role="button" tabindex="0" aria-label="Open Street dance"><div class="card-media"><div class="stage"></div></div><div class="card-body"><span class="card-kicker">Dance · keypoints</span><h3>Street dance</h3><p>Five dancers, 17 joints each, through every move. Hollow joints are ones the model knows are hidden.</p></div></div>
 <div class="card span-2" role="button" tabindex="0" aria-label="Open Shibuya crossing"><div class="card-media"><div class="stage"></div></div><div class="card-body"><span class="card-kicker">City · boxes</span><h3>Shibuya crossing</h3><p>Around 190 people in every frame, down to the far side of the crossing. A model trained on drone footage, looking down from above.</p></div></div>
-<div class="card" role="button" tabindex="0" aria-label="Open Dump truck on a road works site"><div class="card-media"><div class="stage"></div></div><div class="card-body"><span class="card-kicker">Construction · outlines</span><h3>Dump truck on a road works site</h3><p>The truck and its driver outlined as it crosses the site. The general model has never seen an excavator; a site-specific model is a small fine-tune away.</p></div></div>
-<div class="card" role="button" tabindex="0" aria-label="Open Chase drone over a dry lake"><div class="card-media"><div class="stage"></div></div><div class="card-body"><span class="card-kicker">Off-road · outlines</span><h3>Chase drone over a dry lake</h3><p>The rider outlined at speed from an FPV drone, through motion blur and banking turns.</p></div></div>
+<div class="card span-2" role="button" tabindex="0" aria-label="Open Camper on a rocky track"><div class="card-media"><div class="stage"></div></div><div class="card-body"><span class="card-kicker">Off-road · pixels</span><h3>Camper on a rocky track</h3><p>A camera on an expedition camper crawling over rocks. The off-road model from the top of the page maps the ground, bushes, single rocks and the camper itself.</p></div></div>
 <div class="card span-2" role="button" tabindex="0" aria-label="Open Blinded by headlights"><div class="card-media"><div class="stage"></div></div><div class="card-body"><span class="card-kicker">Thermal · boxes</span><h3>Blinded by headlights</h3><p>Glare hides the oncoming car from a regular camera, and the far car on the right barely shows in thermal. The model reads both cameras at once and finds all seven cars and both people. Switch views in the viewer.</p></div></div>
 <!-- /prerender:gallery --></div>
     </div>
@@ -277,8 +276,7 @@
 <li><strong>Great Barrier Reef survey</strong> <span class="muted">Underwater · pixels</span><br>X model · Coralscapes, 39 classes · 58.4 mIoU at 15 ms vs SegFormer-B5 58.2 at 39 ms</li>
 <li><strong>Street dance</strong> <span class="muted">Dance · keypoints</span><br>S model · 65.4 keypoint AP at 2.1 ms (YOLO26s-pose: 62.7)</li>
 <li><strong>Shibuya crossing</strong> <span class="muted">City · boxes</span><br>X model at 1280 px input · trained on VisDrone</li>
-<li><strong>Dump truck on a road works site</strong> <span class="muted">Construction · outlines</span><br>X model · COCO instance segmentation</li>
-<li><strong>Chase drone over a dry lake</strong> <span class="muted">Off-road · outlines</span><br>X model · COCO instance segmentation, person class only</li>
+<li><strong>Camper on a rocky track</strong> <span class="muted">Off-road · pixels</span><br>X model · GOOSE, 11 classes · 69.8 mIoU at 2048×1024</li>
 <li><strong>Blinded by headlights</strong> <span class="muted">Thermal · boxes</span><br>L model · 4-channel RGB + thermal input · 93.1 mAP50 on M3FD test</li>
 </ul>
 </div>
@@ -335,8 +333,7 @@
 <li>Reef footage: Adam Fish, CC BY 3.0, Wikimedia Commons (&quot;Lady Musgrave Island coral survey 2022&quot;)</li>
 <li>Mixkit, free license: mixkit.co/free-stock-video/five-young-people-dancing-a-choreography-in-the-street-51295</li>
 <li>Shibuya footage: Mixkit, free license: mixkit.co/free-stock-video/crowds-of-people-cross-a-street-junction-4401; model trained on VisDrone (AISKYEYE, Tianjin University), non-commercial research use</li>
-<li>Road works footage: Sounds of Changes, CC BY 3.0, Wikimedia Commons (&quot;Building site Ljubljana 2&quot;)</li>
-<li>Mixkit, free license: mixkit.co/free-stock-video/man-traveling-through-the-desert-on-his-motorcycle-43114</li>
+<li>Camper footage: Mixkit, free license: mixkit.co/free-stock-video/campervan-driving-on-rough-tracks-4245; same GOOSE model as the hero</li>
 <li>Thermal + visible images: M3FD dataset (Liu et al., CVPR 2022), research use</li>
 <!-- /prerender:credits --></ul>
       </details>
