@@ -2,22 +2,22 @@
  "stuttgart_triptych_det": {
   "title": "Same street - detection",
   "caption": "Objects on the street found and labeled with boxes.",
-  "model": "D-FINE-seg X detection (dfine_x_obj2coco.pt), conf 0.5",
-  "notes": "Released COCO detection weights (Objects365 pretraining, then COCO), 640x640 input, PyTorch inference (box AP of these weights not re-measured here). Ego-vehicle hood detections filtered. Segment: stuttgart_02_clip01.mp4 0-12 s (17 fps).",
+  "model": "D-FINE-seg M detection, Cityscapes-trained (640x1280), conf 0.5",
+  "notes": "Cityscapes-trained detection, M size, 640x1280 input, 8 Cityscapes thing classes. Cityscapes val F1 0.758 at conf 0.5 (TensorRT fp16). Ego-vehicle hood detections filtered. Segment: stuttgart_02_clip01.mp4 0-12 s (17 fps).",
   "dataset": "Cityscapes demoVideo (Stuttgart)",
   "source": "https://www.cityscapes-dataset.com/ (leftImg8bit_demoVideo)",
   "license": "Cityscapes terms of use: non-commercial use only (research, teaching, publications); frames from leftImg8bit_demoVideo stuttgart sequences",
-  "split": "demoVideo (unlabeled sequences, never used for training these COCO models)"
+  "split": "demoVideo (unlabeled sequences, not in Cityscapes train/val/test)"
  },
  "stuttgart_triptych_seg": {
   "title": "Same street - instance segmentation",
   "caption": "The same objects, each outlined with its own mask.",
-  "model": "D-FINE-seg X instance segmentation (dfine_seg_x_coco.pt), conf 0.5",
-  "notes": "Released COCO instance-seg weights, 640x640 input. Internal COCO val2017 eval (official scorer, 5000 images): mask AP 45.1 / box AP 55.0. Ego-vehicle hood detections filtered. Segment: stuttgart_02_clip01.mp4 0-12 s (17 fps).",
+  "model": "D-FINE-seg M instance segmentation, Cityscapes-trained (640x1280), conf 0.5",
+  "notes": "Cityscapes-trained instance segmentation, M size, 640x1280 input, 8 Cityscapes thing classes. Cityscapes val F1 0.754 at conf 0.5 (TensorRT fp16). Ego-vehicle hood detections filtered. Segment: stuttgart_02_clip01.mp4 0-12 s (17 fps).",
   "dataset": "Cityscapes demoVideo (Stuttgart)",
   "source": "https://www.cityscapes-dataset.com/ (leftImg8bit_demoVideo)",
   "license": "Cityscapes terms of use: non-commercial use only (research, teaching, publications); frames from leftImg8bit_demoVideo stuttgart sequences",
-  "split": "demoVideo (unlabeled sequences, never used for training these COCO models)"
+  "split": "demoVideo (unlabeled sequences, not in Cityscapes train/val/test)"
  },
  "stuttgart_triptych_kpts": {
   "title": "Same street - human pose",
