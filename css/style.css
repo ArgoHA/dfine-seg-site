@@ -69,6 +69,9 @@ h1 { font-size: clamp(2.3rem, 6vw, 4.2rem); line-height: 1.04; letter-spacing: -
 .player-canvas { opacity: 0; transition: opacity 0.4s; }
 .is-ready .player-canvas { opacity: 1; }
 .no-webgl .player-media { opacity: 1; }
+/* two stacked players swapping (thermal <-> visible) */
+.player-view { position: absolute; inset: 0; opacity: 0; transition: opacity 0.6s ease; }
+.player-view.is-on { opacity: 1; }
 
 /* sections */
 .section { padding: 96px 0; border-top: 1px solid var(--border); }

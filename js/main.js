@@ -146,12 +146,40 @@ function initGallery() {
         h('p', {}, item.caption)));
     grid.append(card);
     stage._mount = async () => {
-      const p = await mount(stage, item, { labels: item.opts?.labels ?? false });
       // cards crop to a uniform 16:9 frame (cover); the lightbox shows the full frame
-      const ar = p.meta.w / p.meta.h, card = 16 / 9;
-      stage.classList.add('cover');
-      if (ar > card) Object.assign(stage.style, { height: '100%', width: `${(ar / card) * 100}%` });
-      else Object.assign(stage.style, { width: '100%', height: `${(card / ar) * 100}%` });
+      const crop = (w, h) => {
+        const ar = w / h, card = 16 / 9;
+        stage.classList.add('cover');
+        if (ar > card) Object.assign(stage.style, { height: '100%', width: `${(ar / card) * 100}%` });
+        else Object.assign(stage.style, { width: '100%', height: `${(card / ar) * 100}%` });
+      };
+      if (item.views) {
+        // Two stills swapping on a timer (thermal -> visible, looping), the same idea as the radio galaxies slideshow.
+        // Swaps only while the card is on screen; the lightbox still opens on the first view with its own view picker.
+        const players = [];
+        for (const v of item.views) {
+          const wrap = h('div', { class: 'player-view' });
+          stage.append(wrap);
+          players.push(await mount(wrap, { ...item, src: v.src }, { labels: item.opts?.labels ?? false }));
+        }
+        crop(players[0].meta.w, players[0].meta.h);
+        players.forEach((p) => p.resize());
+        let on = 0;
+        players[0].el.classList.add('is-on');
+        let timer = null;
+        const setTimer = (running) => {
+          if (running && !timer) timer = setInterval(() => {
+            players[on].el.classList.remove('is-on');
+            on = (on + 1) % players.length;
+            players[on].el.classList.add('is-on');
+          }, 3000);
+          if (!running && timer) { clearInterval(timer); timer = null; }
+        };
+        new IntersectionObserver(([e]) => setTimer(e.isIntersecting), { threshold: 0.25 }).observe(stage);
+        return;
+      }
+      const p = await mount(stage, item, { labels: item.opts?.labels ?? false });
+      crop(p.meta.w, p.meta.h);
       p.resize();
     };
     lazy.observe(stage);
