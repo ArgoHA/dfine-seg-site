@@ -177,7 +177,7 @@ export const RESULTS = [
       ['D-FINE-seg S', '67.1', '70.5', '1.8', '13.4', '640'],
       ['Gal-DINO (published model)', '53.8', '48.2', '11.6', '47', '800'],
     ],
-    note: `Test split, 420 images, 611 sources, both models scored with Gal-DINO's own evaluation (paper: 53.7 box AP, 48.1 host AP). Over three training seeds D-FINE-seg S scores 66.4 ± 0.7 box AP and 70.9 ± 0.4 host AP. The best published box AP is 54.5 (Gal-YOLOv8, same paper, no hosts). ${PROTOCOL}`,
+    note: `Test split, 420 images, 611 sources, both models scored with Gal-DINO's own evaluation (paper: 53.7 box AP, 48.1 host AP). Over three training seeds D-FINE-seg S scores 66.4 ± 0.7 box AP and 70.9 ± 0.4 host AP. The best published box AP is 54.5 (Gal-YOLOv8, same paper, no hosts). ${PROTOCOL} Paper: arXiv:2611.29798.`,
     link: [RG_BENCH, 'Code and raw predictions: radiogalaxynet-dfine-vs-galdino'],
   },
 ];
@@ -222,6 +222,7 @@ export const LLMS = {
     ['Paper (detection and instance segmentation)', 'https://arxiv.org/abs/2602.23043'],
     ['Cityscapes benchmark vs YOLO26, RF-DETR, SegFormer, Mask2Former, EfficientViT', CS_BENCH],
     ['RadioGalaxyNET comparison vs Gal-DINO', RG_BENCH],
+    ['Paper: Revisiting RadioGalaxyNET (radio galaxies and their infrared hosts)', 'https://arxiv.org/abs/2611.29798'],
     ['Author: Argo Saakyan', 'https://argoai.space/'],
   ],
 };

@@ -9,6 +9,7 @@
 - [Paper (detection and instance segmentation)](https://arxiv.org/abs/2602.23043)
 - [Cityscapes benchmark vs YOLO26, RF-DETR, SegFormer, Mask2Former, EfficientViT](https://github.com/ArgoHA/cityscapes-benchmark)
 - [RadioGalaxyNET comparison vs Gal-DINO](https://github.com/ArgoHA/radiogalaxynet-dfine-vs-galdino)
+- [Paper: Revisiting RadioGalaxyNET (radio galaxies and their infrared hosts)](https://arxiv.org/abs/2611.29798)
 - [Author: Argo Saakyan](https://argoai.space/)
 
 ## Questions
@@ -121,7 +122,7 @@ COCO val2017 at 640, official COCO AP. D-FINE-seg S trained for 40 epochs; YOLO2
 | **D-FINE-seg S** | 67.1 | 70.5 | 1.8 | 13.4 | 640 |
 | Gal-DINO (published model) | 53.8 | 48.2 | 11.6 | 47 | 800 |
 
-Test split, 420 images, 611 sources, both models scored with Gal-DINO's own evaluation (paper: 53.7 box AP, 48.1 host AP). Over three training seeds D-FINE-seg S scores 66.4 ± 0.7 box AP and 70.9 ± 0.4 host AP. The best published box AP is 54.5 (Gal-YOLOv8, same paper, no hosts). End-to-end latency (each framework's own pre- and postprocessing), TensorRT FP16, batch 1, RTX 5070 Ti. Code and raw predictions: https://github.com/ArgoHA/radiogalaxynet-dfine-vs-galdino
+Test split, 420 images, 611 sources, both models scored with Gal-DINO's own evaluation (paper: 53.7 box AP, 48.1 host AP). Over three training seeds D-FINE-seg S scores 66.4 ± 0.7 box AP and 70.9 ± 0.4 host AP. The best published box AP is 54.5 (Gal-YOLOv8, same paper, no hosts). End-to-end latency (each framework's own pre- and postprocessing), TensorRT FP16, batch 1, RTX 5070 Ti. Paper: arXiv:2611.29798. Code and raw predictions: https://github.com/ArgoHA/radiogalaxynet-dfine-vs-galdino
 
 ## Demos on the page
 
